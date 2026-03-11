@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('title');
             $table->text('description');
             $table->string('type');
-            $table->enum('status', ['pendiente, revision, resuleto']);
+            $table->enum('status', ['pendiente, revision, resuelto']);
             $table->decimal('lat');
             $table->decimal('lng');
             $table->date('date');
