@@ -11,10 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('evidence', function (Blueprint $table) {
+        Schema::create('verification', function (Blueprint $table) {
             $table->id();
-            $table->enum('file_type', ['img', 'record', 'document']);
-            $table->foreignId('complaint_id')->references('id')->on('complaints');
+            $table->enum('state',['pendiente', 'aprobada', 'rechazada']);
+            $table->date('date_verification');
+            $table->foreignId('new_id')->references('id')->on('news');
             $table->timestamps();
         });
     }
@@ -24,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('evidence');
+        Schema::dropIfExists('verification');
     }
 };

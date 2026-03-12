@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('payment_reference');
             $table->enum('status',['in_process','canceled','completed']);
             $table->date('payment_date');
+            $table->foreignId('verification_id')->references('id')->on('verification');
             $table->timestamps();
         });
     }
@@ -27,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('payments');
     }
 };
