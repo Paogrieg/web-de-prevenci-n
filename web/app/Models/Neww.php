@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ComplaintModel extends Model
+class Neww extends Model
 {
     //
 }
