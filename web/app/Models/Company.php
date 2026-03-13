@@ -4,12 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class AdvertisingModel extends Model
+class Company extends Model
 {
-    protected $table = 'advertising';
+    protected $table = 'companies';
     protected $primaryKey = 'id'; 
     protected $fillable = [
         'name',
-        'img',
+        'description',
+        'logo',
+        'email',
+        'phone_number'
     ];
 }
