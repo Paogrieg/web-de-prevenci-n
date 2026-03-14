@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('evidence', function (Blueprint $table) {
+        Schema::create('evidences', function (Blueprint $table) {
             $table->id();
             $table->enum('file_type', ['img', 'record', 'document']);
             $table->foreignId('complaint_id')->references('id')->on('complaints');
@@ -24,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('evidence');
+        Schema::dropIfExists('evidences');
     }
 };

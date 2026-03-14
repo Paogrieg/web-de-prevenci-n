@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('rute');
             $table->text('description');
-            $table->foreignId('evidence_id')->references('id')->on('evidence');
+            $table->foreignId('evidences_id')->references('id')->on('evidences');
             $table->timestamps();
         });
     }

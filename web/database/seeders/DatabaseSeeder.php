@@ -27,7 +27,7 @@ class DatabaseSeeder extends Seeder
         $this->call([CollaborationsSeeder::class]);
         $this->call([ComplaintsSeeder::class]);
         $this->call([TestimonialsSeeder::class]);
-        $this->call([EvidenceSeeder::class]);
+        $this->call([EvidencesSeeder::class]);
         $this->call([EvidenceFilesSeeder::class]);
         $this->call([SeguimientoCasosSeeder::class]);
         $this->call([VerificationsSeeder::class]);
