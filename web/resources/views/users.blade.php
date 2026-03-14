@@ -1,7 +1,7 @@
 @extends('back.main')
-@section('content')
+@section('contenido')
 
-<div class="view" id="view-usuarias">
+
       <div class="page-header-row">
         <div class="page-header"><h2><i class="fa-solid fa-users"></i> Usuarias</h2><p>Gestión de usuarias registradas en la plataforma</p></div>
         <button class="btn-primary">＋ Nueva usuaria</button>
@@ -33,5 +33,5 @@
           </tbody>
         </table>
       </div>
-    </div>
+    
 @endsection

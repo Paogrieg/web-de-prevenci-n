@@ -1,5 +1,5 @@
 @extends('front.main')
-@section('content')
+@section('contenido')
 
 
 

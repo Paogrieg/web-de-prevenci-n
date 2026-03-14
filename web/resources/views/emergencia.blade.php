@@ -1,7 +1,6 @@
 @extends('back.main')
-@section('content')
+@section('contenido')
 
-<div class="view" id="view-contactos">
         <div class="page-header-row">
         <div class="page-header"><h2><i class="fa-solid fa-phone"></i> Contactos de Emergencia</h2><p>Red de apoyo y contactos de confianza registrados</p></div>
         <button class="btn-primary"><i class="fa-solid fa-plus"></i> Nuevo contacto</button>
@@ -15,7 +14,7 @@
         </div>
 
         <div class="contact-grid">
-        <div class="contact-card"><div class="contact-card-icon" style="background:#fce4ef"><i class="fa-solid fa-triangle-exclamation"></i></div><div class="contact-card-name">Línea de Emergencias ALAS</div><div class="contact-card-rel">Atención 24/7</div><div class="contact-card-phone"><i class="fa-solid fa-mobile-screen"></i> 800-900-1000</div></div>
+        <div class="contact-card"><div class="contact-card-icon" style="background:#fce4ef"><i class="fa-solid fa-triangle-exclamation"></i></div><div class="contact-card-name">Línea de Emergencias</div><div class="contact-card-rel">Atención 24/7</div><div class="contact-card-phone"><i class="fa-solid fa-mobile-screen"></i> 800-900-1000</div></div>
         <div class="contact-card"><div class="contact-card-icon" style="background:#e8f9f5"><i class="fa-solid fa-house-medical"></i></div><div class="contact-card-name">Refugio Casa Amiga</div><div class="contact-card-rel">Refugio temporal · Cd. Juárez</div><div class="contact-card-phone"><i class="fa-solid fa-mobile-screen"></i> 656-123-4567</div></div>
         <div class="contact-card"><div class="contact-card-icon" style="background:var(--plum-100)"><i class="fa-solid fa-shield-halved"></i></div><div class="contact-card-name">UAVI Chihuahua</div><div class="contact-card-rel">Unidad de Atención a Víctimas</div><div class="contact-card-phone"><i class="fa-solid fa-mobile-screen"></i> 614-234-5678</div></div>
         <div class="contact-card"><div class="contact-card-icon" style="background:#fff8e6"><i class="fa-solid fa-scale-balanced"></i></div><div class="contact-card-name">Dra. Carmen Flores</div><div class="contact-card-rel">Abogada de apoyo gratuito</div><div class="contact-card-phone"><i class="fa-solid fa-mobile-screen"></i> 614-345-6789</div></div>
@@ -33,5 +32,5 @@
         </div>
         <button class="btn-primary"><i class="fa-solid fa-floppy-disk"></i> Guardar contacto</button>
         </div>
-    </div>
+    
 @endsection

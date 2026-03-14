@@ -1,27 +1,3 @@
-function navigate(page) {
-  // Hide all views
-  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
-  // Show target view
-  const target = document.getElementById('view-' + page);
-  if (target) target.classList.add('active');
-
-  // Update active nav item
-  document.querySelectorAll('.nav-item').forEach(n => {
-    n.classList.toggle('active', n.dataset.page === page);
-  });
-
-  // Update topbar title
-  const route = routes[page];
-  if (route) {
-    document.querySelector('.topbar-title').textContent = route.title;
-  }
-
-  // Init carousel if going to inicio
-  if (page === 'inicio') {
-    setTimeout(initCarousel, 50);
-  }
-}
-
 /* ── CAROUSEL ── */
 let cur = 0, tot = 4, tmr;
 
@@ -60,11 +36,8 @@ function toggleSwitch(el) {
 
 /* ── INIT ── */
 document.addEventListener('DOMContentLoaded', () => {
-  // Wire up nav items
-  document.querySelectorAll('.nav-item[data-page]').forEach(item => {
-    item.addEventListener('click', () => navigate(item.dataset.page));
-  });
-
-  // Start on inicio
-  navigate('inicio');
+  // Iniciar carousel solo si estamos en inicio
+  if (window.location.pathname === '/') {
+    setTimeout(initCarousel, 50);
+  }
 });

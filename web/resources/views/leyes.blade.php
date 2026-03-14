@@ -1,7 +1,6 @@
 @extends('back.main')
-@section('content')
+@section('contenido')
 
-<div class="view" id="view-leyes">
       <div class="page-header-row">
         <div class="page-header"><h2><i class="fa-solid fa-scale-balanced"></i> Marco Legal</h2><p>Leyes y normativas de protección vigentes</p></div>
         <button class="btn-primary">＋ Agregar ley</button>
@@ -23,6 +22,6 @@
           </tbody>
         </table>
       </div>
-    </div>
+    
 
 @endsection

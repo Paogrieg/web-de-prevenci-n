@@ -27,7 +27,7 @@
     </div>
   </header>
     <main class="content">
-         @yield('content')
+         @yield('contenido')
     </main>
 </div>
   <script src="{{ asset('js/dashboard.js') }}"></script>

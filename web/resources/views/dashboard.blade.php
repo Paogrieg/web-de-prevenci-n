@@ -1,6 +1,7 @@
 @extends('back.main')
-@section('content')
-     <div class="view" id="view-inicio">
+@section('contenido')
+
+
 
       <!-- Carousel -->
       
@@ -53,11 +54,11 @@
         <div class="card">
           <div class="card-header"><div><div class="card-title">Últimas Noticias</div></div><button class="card-action" onclick="navigate('noticias')">Ver más</button></div>
           <div>
-            <div class="noticia-item"><div class="n-img" style="background:#f3e8ff"><i class="fa-solid fa-newspaper"></i></div><div><div class="n-title">Chihuahua refuerza protocolo de atención</div><div class="n-meta">✅ Verificada · Hace 2h</div></div></div>
-            <div class="noticia-item"><div class="n-img" style="background:#fce4ef"><i class="fa-solid fa-landmark"></i></div><div><div class="n-title">Nuevos refugios en el norte del país</div><div class="n-meta">⏳ En revisión · Hace 5h</div></div></div>
-            <div class="noticia-item"><div class="n-img" style="background:#fff8e6"><i class="fa-solid fa-bullhorn"></i></div><div><div class="n-title">Campaña #NoEstásSola alcanza 2M</div><div class="n-meta">✅ Verificada · Hace 8h</div></div></div>
-            <div class="noticia-item"><div class="n-img" style="background:#e8f9f5"><i class="fa-solid fa-scale-balanced"></i></div><div><div class="n-title">Reforma al Art. 325 del Código Penal</div><div class="n-meta">✅ Verificada · Hace 1d</div></div></div>
-          </div>
+            <div class="noticia-item"><div class="n-img" style="background:#f3e8ff"><i class="fa-solid fa-newspaper"></i></div><div><div class="n-title">Chihuahua refuerza protocolo de atención</div><div class="n-meta"><i class="fa-solid fa-circle-check"></i> Verificada · Hace 2h</div></div></div>
+              <div class="noticia-item"><div class="n-img" style="background:#fce4ef"><i class="fa-solid fa-landmark"></i></div><div><div class="n-title">Nuevos refugios en el norte del país</div><div class="n-meta"><i class="fa-solid fa-hourglass-half"></i> En revisión · Hace 5h</div></div></div>
+              <div class="noticia-item"><div class="n-img" style="background:#fff8e6"><i class="fa-solid fa-bullhorn"></i></div><div><div class="n-title">Campaña #NoEstásSola alcanza 2M</div><div class="n-meta"><i class="fa-solid fa-circle-check"></i> Verificada · Hace 8h</div></div></div>
+              <div class="noticia-item"><div class="n-img" style="background:#e8f9f5"><i class="fa-solid fa-scale-balanced"></i></div><div><div class="n-title">Reforma al Art. 325 del Código Penal</div><div class="n-meta"><i class="fa-solid fa-circle-check"></i> Verificada · Hace 1d</div></div></div>
+            </div>
         </div>
         <div class="card">
           <div class="card-header"><div><div class="card-title">Marco Legal</div><div class="card-subtitle">Leyes vigentes</div></div><button class="card-action" onclick="navigate('leyes')">Ver más</button></div>
@@ -69,7 +70,5 @@
           </div>
         </div>
       </div>
-
-    </div><!-- /view-inicio -->
 
 @endsection

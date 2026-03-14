@@ -1,7 +1,6 @@
 @extends('back.main')
-@section('content')
+@section('contenido')
 
-<div class="view" id="view-noticias">
       <div class="page-header-row">
         <div class="page-header"><h2><i class="fa-solid fa-newspaper"></i> Noticias</h2><p>Publicaciones y comunicados de la plataforma</p></div>
         <button class="btn-primary">＋ Nueva noticia</button>
@@ -29,5 +28,5 @@
           </tbody>
         </table>
       </div>
-    </div>
+    
 @endsection

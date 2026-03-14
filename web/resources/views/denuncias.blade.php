@@ -1,7 +1,6 @@
 @extends('back.main')
-@section('content')
+@section('contenido')
 
-<div class="view" id="view-denuncias">
       <div class="page-header-row">
         <div class="page-header"><h2><i class="fa-solid fa-triangle-exclamation"></i> Denuncias</h2><p>Gestión y seguimiento de reportes de violencia</p></div>
         <button class="btn-primary">＋ Nueva denuncia</button>
@@ -26,15 +25,15 @@
         <table>
           <thead><tr><th>#</th><th>Usuaria</th><th>Tipo de Violencia</th><th>Estado</th><th>Ubicación</th><th>Fecha</th></tr></thead>
           <tbody>
-            <tr><td style="color:var(--text-secondary)">#DEN-001</td><td><div class="user-row"><div class="u-av">MG</div>María G.</div></td><td>🤜 Física</td><td><span class="badge b-pen">Pendiente</span></td><td>Chihuahua, Chih.</td><td>Hoy, 09:14</td></tr>
-            <tr><td style="color:var(--text-secondary)">#DEN-002</td><td><div class="user-row"><div class="u-av" style="background:linear-gradient(135deg,#a855d4,#6b2fa0)">AR</div>Ana R.</div></td><td>🧠 Psicológica</td><td><span class="badge b-rev">En Revisión</span></td><td>Cd. Juárez, Chih.</td><td>Hoy, 08:52</td></tr>
-            <tr><td style="color:var(--text-secondary)">#DEN-003</td><td><div class="user-row"><div class="u-av" style="background:linear-gradient(135deg,#059669,#10b981)">LM</div>Laura M.</div></td><td>🚫 Sexual</td><td><span class="badge b-res">Resuelto</span></td><td>Delicias, Chih.</td><td>Ayer, 21:30</td></tr>
-            <tr><td style="color:var(--text-secondary)">#DEN-004</td><td><div class="user-row"><div class="u-av" style="background:linear-gradient(135deg,#f0c060,#e87d1e)">SL</div>Sofía L.</div></td><td>💰 Económica</td><td><span class="badge b-pen">Pendiente</span></td><td>Hidalgo del Parral</td><td>Ayer, 18:05</td></tr>
-            <tr><td style="color:var(--text-secondary)">#DEN-005</td><td><div class="user-row"><div class="u-av" style="background:linear-gradient(135deg,#e879a0,#c084e8)">VH</div>Valentina H.</div></td><td>📱 Digital</td><td><span class="badge b-rev">En Revisión</span></td><td>Chihuahua, Chih.</td><td>Ayer, 14:22</td></tr>
-            <tr><td style="color:var(--text-secondary)">#DEN-006</td><td><div class="user-row"><div class="u-av" style="background:linear-gradient(135deg,#2563eb,#1a1f71)">CF</div>Carmen F.</div></td><td>🤜 Física</td><td><span class="badge b-res">Resuelto</span></td><td>Cuauhtémoc, Chih.</td><td>13 Mar, 10:00</td></tr>
+            <tr><td style="color:var(--text-secondary)">#DEN-001</td><td><div class="user-row"><div class="u-av">MG</div>María G.</div></td><td><i class="fa-solid fa-hand-fist"></i> Física</td><td><span class="badge b-pen">Pendiente</span></td><td>Chihuahua, Chih.</td><td>Hoy, 09:14</td></tr>
+            <tr><td style="color:var(--text-secondary)">#DEN-002</td><td><div class="user-row"><div class="u-av" style="background:linear-gradient(135deg,#a855d4,#6b2fa0)">AR</div>Ana R.</div></td><td><i class="fa-solid fa-brain"></i> Psicológica</td><td><span class="badge b-rev">En Revisión</span></td><td>Cd. Juárez, Chih.</td><td>Hoy, 08:52</td></tr>
+            <tr><td style="color:var(--text-secondary)">#DEN-003</td><td><div class="user-row"><div class="u-av" style="background:linear-gradient(135deg,#059669,#10b981)">LM</div>Laura M.</div></td><td><i class="fa-solid fa-ban"></i> Sexual</td><td><span class="badge b-res">Resuelto</span></td><td>Delicias, Chih.</td><td>Ayer, 21:30</td></tr>
+            <tr><td style="color:var(--text-secondary)">#DEN-004</td><td><div class="user-row"><div class="u-av" style="background:linear-gradient(135deg,#f0c060,#e87d1e)">SL</div>Sofía L.</div></td><td><i class="fa-solid fa-money-bill-wave"></i> Económica</td><td><span class="badge b-pen">Pendiente</span></td><td>Hidalgo del Parral</td><td>Ayer, 18:05</td></tr>
+            <tr><td style="color:var(--text-secondary)">#DEN-005</td><td><div class="user-row"><div class="u-av" style="background:linear-gradient(135deg,#e879a0,#c084e8)">VH</div>Valentina H.</div></td><td><i class="fa-solid fa-mobile-screen-button"></i> Digital</td><td><span class="badge b-rev">En Revisión</span></td><td>Chihuahua, Chih.</td><td>Ayer, 14:22</td></tr>
+            <tr><td style="color:var(--text-secondary)">#DEN-006</td><td><div class="user-row"><div class="u-av" style="background:linear-gradient(135deg,#2563eb,#1a1f71)">CF</div>Carmen F.</div></td><td><i class="fa-solid fa-hand-fist"></i> Física</td><td><span class="badge b-res">Resuelto</span></td><td>Cuauhtémoc, Chih.</td><td>13 Mar, 10:00</td></tr>
           </tbody>
         </table>
       </div>
-    </div>
+    
 
 @endsection

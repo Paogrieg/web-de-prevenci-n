@@ -1,13 +1,13 @@
 @extends('back.main')
-@section('content')
+@section('contenido')
 
-<div class="view" id="view-pagos">
+
       <div class="page-header"><h2><i class="fa-solid fa-credit-card"></i> Pagos y Verificaciones</h2><p>Control financiero y métodos de pago del sistema</p></div>
       <div class="pagos-hero">
         <div class="credit-card">
           <div><div class="cc-chip"><i class="fa-solid fa-credit-card" style="color: rgb(255, 255, 255);"></i></div><div class="cc-number">4562 &nbsp;1122 &nbsp;4594 &nbsp;7852</div></div>
           <div class="cc-footer">
-            <div><div class="cc-label">Titular</div><div class="cc-val">Admin ALAS</div></div>
+            <div><div class="cc-label">Titular</div><div class="cc-val">Admin</div></div>
             <div style="text-align:right"><div class="cc-label">Vence</div><div class="cc-val">03/28</div></div>
             <div class="cc-brand"><i class="fa-solid fa-circle" style="color: rgb(48, 113, 230);"></i><i class="fa-solid fa-circle" style="color: rgb(255, 0, 0);"></i></div>
           </div>
@@ -40,7 +40,7 @@
           <div class="trans-item"><div class="t-icon ti-n"><i class="fa-solid fa-building-columns"></i></div><div style="flex:1"><div class="t-name">Fondo Sec. Bienestar</div><div class="t-date">05 Mar · Transferencia</div></div><div class="t-amt ta-pos">+$8,000</div></div>
         </div>
       </div>
-    </div>
+    
 
 
 @endsection

@@ -1,7 +1,6 @@
 @extends('back.main')
-@section('content')
+@section('contenido')
 
-<div class="view" id="view-testimonios">
       <div class="page-header-row">
         <div class="page-header"><h2><i class="fa-solid fa-comment"></i> Testimonios</h2><p>Relatos y experiencias compartidas por las usuarias</p></div>
         <button class="btn-primary">＋ Nuevo testimonio</button>
@@ -22,7 +21,7 @@
       </div>
 
       <div class="testimony-card">
-        <p class="testimony-content">"Gracias a la red de apoyo de ALAS pude salir de una situación de violencia económica. Me orientaron sobre mis derechos y me conectaron con una abogada que llevó mi caso. No están solas, hay personas que nos escuchan y apoyan."</p>
+        <p class="testimony-content">"Gracias a la red de apoyo de Equoria pude salir de una situación de violencia económica. Me orientaron sobre mis derechos y me conectaron con una abogada que llevó mi caso. No están solas, hay personas que nos escuchan y apoyan."</p>
         <div class="testimony-footer">
           <div class="testimony-author"><div class="u-av" style="background:linear-gradient(135deg,#059669,#10b981)">LM</div><div><div style="font-size:13px;font-weight:600">Laura M.</div><div style="font-size:11px;color:var(--text-secondary)">Cd. Juárez · 8 Mar 2026</div></div></div>
           <div style="display:flex;gap:8px"><span class="badge b-apr">Aprobado</span></div>
@@ -36,5 +35,5 @@
           <div style="display:flex;gap:8px"><span class="badge b-rev">En moderación</span></div>
         </div>
       </div>
-    </div>
+  
 @endsection

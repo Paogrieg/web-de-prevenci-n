@@ -1,7 +1,6 @@
 @extends('back.main')
-@section('content')
+@section('contenido')
 
-<div class="view" id="view-verificaciones">
       <div class="page-header-row">
         <div class="page-header"><h2><i class="fa-solid fa-circle-check"></i> Verificaciones</h2><p>Revisión y aprobación de contenido pendiente</p></div>
         <span style="font-size:13px;color:var(--rose-accent);font-weight:600">5 pendientes de revisión</span>
@@ -44,6 +43,5 @@
           </tbody>
         </table>
       </div>
-    </div>
 
 @endsection
