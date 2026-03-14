@@ -18,6 +18,9 @@ class AvatarsSeeder extends Seeder
          DB::table('avatars')->insert([
             'rute' => 'default.png',
         ]);
+          DB::table('avatars')->insert([
+            'rute' => 'default1.png',
+        ]);
         //insertar con el modelo 
         $table = new Avatar();
         $table->rute = 'default.png';
