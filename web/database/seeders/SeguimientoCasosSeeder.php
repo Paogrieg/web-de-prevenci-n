@@ -36,5 +36,21 @@ class SeguimientoCasosSeeder extends Seeder
                 'updated_at' => date('Y-m-d H:i:s'),
             ]
         ]);
+        //,models
+        $table = new SeguimientoCaso();
+        $table->status = 'open';
+        $table->coments = 'En proceso';
+        $table->complaint_id = 1;
+        $table->testimonial_id = 1;
+        $table->advisor_id = 1;
+        $table->save();
+
+        $table = new SeguimientoCaso();
+        $table->status = 'in_process';
+        $table->coments = 'Revisando';
+        $table->complaint_id = 2;
+        $table->testimonial_id = 2;
+        $table->advisor_id = 1;
+        $table->save();
     }
 }

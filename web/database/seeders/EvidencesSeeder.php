@@ -4,10 +4,8 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\EvidenceModel;
 use App\Models\Evidence;
 use Illuminate\Support\Facades\DB;
-use App\Models\Evidences;
 class EvidencesSeeder extends Seeder
 {
     /**
@@ -28,5 +26,15 @@ class EvidencesSeeder extends Seeder
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
         ]);
+        $table = new Evidence();
+        $table->file_type = 'img';
+        $table->complaint_id = 1;
+        $table->save();
+
+
+        $table = new Evidence();
+        $table->file_type = 'record';
+        $table->complaint_id = 2;
+        $table->save();
     }
 }

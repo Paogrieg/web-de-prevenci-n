@@ -33,5 +33,19 @@ class CollaborationsSeeder extends Seeder
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
         ]);
+        //Insertar datos con modelos
+        $table = new Collaboration();
+        $table->type = 'Legal';
+        $table->description = 'Apoyo juridico a victimas';
+        $table->user_id = 1;
+        $table->company_id = 1;
+        $table->save();
+
+        $table = new Collaboration();
+        $table->type = 'Psicologico';
+        $table->description = 'Terapia emocional';
+        $table->user_id = 1;
+        $table->company_id = 2;
+        $table->save();
     }
 }

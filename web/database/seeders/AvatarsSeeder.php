@@ -25,5 +25,13 @@ class AvatarsSeeder extends Seeder
         $table = new Avatar();
         $table->rute = 'default.png';
         $table->save();
+         //insertar con el modelo 
+        $table = new Avatar();
+        $table->rute = 'default3.png';
+        $table->save();
+
+        $table = new Avatar();
+        $table->rute = 'default4.png';
+        $table->save();
     }
 }

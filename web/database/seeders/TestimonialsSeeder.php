@@ -34,5 +34,19 @@ class TestimonialsSeeder extends Seeder
                 'updated_at' => date('Y-m-d H:i:s'),
             ]
         ]);
+        //Models
+        $table = new Testimony();
+        $table->content = 'Gracias por ayudarme';
+        $table->anonymous = true;
+        $table->user_id = 1;
+        $table->complaint_id = 1;
+        $table->save();
+
+        $table = new Testimony();
+        $table->content = 'Me apoyaron mucho';
+        $table->anonymous = false;
+        $table->user_id = 1;
+        $table->complaint_id = 2;
+        $table->save();
     }
 }

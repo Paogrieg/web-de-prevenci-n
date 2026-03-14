@@ -29,5 +29,17 @@ class RecordSeeder extends Seeder
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
         ]);
+        //Models
+        $table = new Record();
+        $table->action = 'login';
+        $table->description = 'Usuario entro';
+        $table->user_id = 1;
+        $table->save();
+
+        $table = new Record();
+        $table->action = 'create';
+        $table->description = 'Creo denuncia';
+        $table->user_id = 1;
+        $table->save();
     }
 }

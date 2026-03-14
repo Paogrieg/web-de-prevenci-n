@@ -31,5 +31,18 @@ class ContactsSeeder extends Seeder
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
         ]);
+        $table = new Contact();
+        $table->name = 'Ana';
+        $table->email = 'ana@gmail.com';
+        $table->message = 'Necesito ayuda';
+        $table->status = 'new';
+        $table->save();
+
+        $table = new Contact();
+        $table->name = 'Luisa';
+        $table->email = 'luisa@gmail.com';
+        $table->message = 'Informacion legal';
+        $table->status = 'answered';
+        $table->save();
     }
 }

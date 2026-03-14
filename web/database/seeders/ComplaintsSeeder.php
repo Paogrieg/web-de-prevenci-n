@@ -40,5 +40,27 @@ class ComplaintsSeeder extends Seeder
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
         ]);
+        //Modelos
+        $table = new Complaint();
+        $table->title = 'Violencia familiar';
+        $table->description = 'Problemas en casa';
+        $table->type = 'violencia';
+        $table->status = 'pendiente';
+        $table->lat = 31.690;
+        $table->lng = -106.424;
+        $table->date = '2026-03-01';
+        $table->user_id = 1;
+        $table->save();
+
+        $table = new Complaint();
+        $table->title = 'Acoso laboral';
+        $table->description = 'Problemas en el trabajo';
+        $table->type = 'acoso';
+        $table->status = 'revision';
+        $table->lat = 31.700;
+        $table->lng = -106.420;
+        $table->date = '2026-03-02';
+        $table->user_id = 1;
+        $table->save();
     }
 }

@@ -31,5 +31,19 @@ class LawsSeeder extends Seeder
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
         ]);
+        //Modelos
+        $table = new Law();
+        $table->title = 'Ley contra violencia';
+        $table->description = 'Proteccion a la mujer';
+        $table->state = 'Chihuahua';
+        $table->url = 'default';
+        $table->save();
+
+        $table = new Law();
+        $table->title = 'Ley de igualdad';
+        $table->description = 'Derechos de la mujer';
+        $table->state = 'Mexico';
+        $table->url = 'default';
+        $table->save();
     }
 }

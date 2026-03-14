@@ -39,6 +39,26 @@ class AdvertisingSeeder extends Seeder
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
         ]);
+        $table = new Advertising();
+        $table->title = 'Campaña Contra la Violencia';
+        $table->image = 'default2.jpg';
+        $table->link = 'default';
+        $table->start_date = '2026-03-01';
+        $table->end_date = '2026-04-01';
+        $table->active = true;
+        $table->company_id = 1;
+        $table->save();
+
+
+        $table = new Advertising();
+        $table->title = 'Apoyo para Mujeres';
+        $table->image = 'default3.jpg';
+        $table->link = 'default';
+        $table->start_date = '2026-03-10';
+        $table->end_date = '2026-05-10';
+        $table->active = true;
+        $table->company_id = 1;
+        $table->save();
 
     }
 }

@@ -30,5 +30,18 @@ class EvidenceFilesSeeder extends Seeder
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
         ]);
+        //Modelos
+        $table = new EvidenceFile();
+        $table->rute = 'img1.jpg';
+        $table->description = 'Foto evidencia';
+        $table->evidences_id = 1;
+        $table->save();
+
+        $table = new EvidenceFile();
+        $table->rute = 'img2.jpg';
+        $table->description = 'Foto evidencia';
+        $table->evidences_id = 2;
+        $table->save();
+        
     }
 }

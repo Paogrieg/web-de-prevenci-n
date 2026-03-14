@@ -35,5 +35,21 @@ class EmergencyContactsSeeder extends Seeder
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
         ]);
+        //Modelos
+        $table = new EmergencyContact();
+        $table->name = 'Maria';
+        $table->lastname = 'Lopez';
+        $table->phone_number = '6563333333';
+        $table->relation = 'Madre';
+        $table->user_id = 1;
+        $table->save();
+
+        $table = new EmergencyContact();
+        $table->name = 'Jose';
+        $table->lastname = 'Perez';
+        $table->phone_number = '6564444444';
+        $table->relation = 'Hermano';
+        $table->user_id = 1;
+        $table->save();
     }
 }

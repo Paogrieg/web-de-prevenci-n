@@ -4,9 +4,9 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\New;
-use Illuminate\Support\Facades\DB;
 use App\Models\News;
+use Illuminate\Support\Facades\DB;
+
 class NewsSeeder extends Seeder
 {
     /**
@@ -31,5 +31,18 @@ class NewsSeeder extends Seeder
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
         ]);
+         $table = new News();
+        $table->title = 'Nueva campaña';
+        $table->content = 'Apoyo a mujeres';
+        $table->img = 'default.jpg';
+        $table->user_id = 1;
+        $table->save();
+
+        $table = new News();
+        $table->title = 'Nuevo refugio';
+        $table->content = 'Refugio abierto';
+        $table->img = 'default.jpg';
+        $table->user_id = 1;
+        $table->save();
     }
 }

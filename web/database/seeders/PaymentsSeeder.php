@@ -35,5 +35,23 @@ class PaymentsSeeder extends Seeder
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
         ]);
+        // Models
+        $table = new Pay();
+        $table->cost = 100;
+        $table->payment_method = 'card';
+        $table->payment_reference = 'ABC123';
+        $table->status = 'completed';
+        $table->payment_date = '2026-03-07';
+        $table->verification_id = 1;
+        $table->save();
+
+        $table = new Pay();
+        $table->cost = 200;
+        $table->payment_method = 'cash';
+        $table->payment_reference = 'XYZ456';
+        $table->status = 'in_process';
+        $table->payment_date = '2026-03-08';
+        $table->verification_id = 2;
+        $table->save();
     }
 }

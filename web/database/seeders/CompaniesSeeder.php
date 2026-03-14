@@ -6,7 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Company;
 use Illuminate\Support\Facades\DB;
-use App\Models\Companies;
+
 
 class CompaniesSeeder extends Seeder
 {
@@ -34,5 +34,21 @@ class CompaniesSeeder extends Seeder
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
         ]);
+        //Insertar datos con modelos
+        $table = new Company();
+        $table->name = 'Instituto de la Mujer';
+        $table->description = 'Apoyo legal y psicologico';
+        $table->logo = 'logos/imujer.png';
+        $table->email = 'contacto@imujer.com';
+        $table->phone_number = '6561111111';
+        $table->save();
+
+        $table = new Company();
+        $table->name = 'Fiscalia de la Mujer';
+        $table->description = 'Atencion a victimas';
+        $table->logo = 'logos/fiscalia.png';
+        $table->email = 'fiscalia@gmail.com';
+        $table->phone_number = '6562222222';
+        $table->save();
     }
 }

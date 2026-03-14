@@ -32,5 +32,16 @@ class VerificationsSeeder extends Seeder
                 'updated_at' => date('Y-m-d H:i:s'),
             ]
         ]);
+        $table = new Verification();
+        $table->state = 'pendiente';
+        $table->date_verification = '2026-03-05';
+        $table->new_id = 1;
+        $table->save();
+
+        $table = new Verification();
+        $table->state = 'aprobada';
+        $table->date_verification = '2026-03-06';
+        $table->new_id = 2;
+        $table->save();
     }
 }

@@ -36,5 +36,23 @@ class AdvisorsSeeder extends Seeder
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
         ]);
+        $table = new Adviser();
+        $table->name = 'Laura';
+        $table->lastname = 'Gonzalez';
+        $table->email = 'laura@gmail.com';
+        $table->phone_number = '6561234567';
+        $table->specialty = 'Psicologia';
+        $table->institution = 'Centro de Apoyo a la Mujer';
+        $table->save();
+
+
+        $table = new Adviser();
+        $table->name = 'Mariana';
+        $table->lastname = 'Lopez';
+        $table->email = 'mariana@gmail.com';
+        $table->phone_number = '6569876543';
+        $table->specialty = 'Derecho Familiar';
+        $table->institution = 'Instituto de la Mujer';
+        $table->save();
     }
 }
