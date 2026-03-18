@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UsersController;
+use App\Http\Controllers\ComplaintController;
 
 Route::get('/', function () {
     return view('dashboard');
@@ -8,18 +10,19 @@ Route::get('/', function () {
 Route::get('/inicio', function () {
     return view('inicio');
 });
-Route::get('/users', function () {
-    return view('users');
-});
+//ruta controlador
+Route::get('/users', [UsersController::class,'index']);
+Route::get('/denuncias', [ComplaintController::class,'complaint']);
+Route::get('/emergencia', [UsersController::class,'']);
+
+
 Route::get('/configuracion', function () {
     return view('configuracion');
 });
-Route::get('/denuncias', function () {
-    return view('denuncias');
-});
-Route::get('/emergencia', function () {
-    return view('emergencia');
-});
+
+
+
+
 Route::get('/leyes', function () {
     return view('leyes');
 });
@@ -35,3 +38,8 @@ Route::get('/testimonios', function () {
 Route::get('/verificaciones', function () {
     return view('verificaciones');
 });
+
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
