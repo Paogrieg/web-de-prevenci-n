@@ -19,7 +19,7 @@ class LawsController extends Controller
             'title'       => ['required', 'string', 'max:255'],
             'description' => ['required', 'string'],
             'state'       => ['required', 'string', 'max:100'],
-            'url'         => ['required', 'url'],
+            'url'         => ['nullable', 'url'],
         ]);
 
         Law::create($request->only('title', 'description', 'state', 'url'));
@@ -33,7 +33,7 @@ class LawsController extends Controller
             'title'       => ['required', 'string', 'max:255'],
             'description' => ['required', 'string'],
             'state'       => ['required', 'string', 'max:100'],
-            'url'         => ['required', 'url'],
+            'url'         => ['nullable', 'url'],
         ]);
 
         $law = Law::findOrFail($id);
