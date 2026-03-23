@@ -46,4 +46,12 @@
     <p><i class="fa-solid fa-circle-info"></i> Línea de Crisis</p>
     <button class="emergency-btn"><i class="fa-solid fa-phone-volume"></i> 800-900-1000</button>
   </div>
+    <div style="margin:16px">
+    <form method="POST" action="{{ route('logout') }}">
+      @csrf
+      <button type="submit" style="width:100%;padding:12px;background:rgba(232,121,160,0.15);color:var(--rose-accent);border:1px solid rgba(232,121,160,0.3);border-radius:10px;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;display:flex;align-items:center;justify-content:center;gap:8px">
+        <i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión
+      </button>
+    </form>
+  </div>
 </aside>

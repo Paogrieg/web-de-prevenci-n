@@ -4,16 +4,16 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class EmergencyContact extends Model
+class GenderVerification extends Model
 {
-    protected $table = 'emergencyContacts';
+    protected $table = 'gender_verifications';
     protected $primaryKey = 'id';
     protected $fillable = [
-        'name',
-        'lastname',
-        'phone_number',
-        'relation',
         'user_id',
+        'document_path',
+        'document_type',
+        'state',
+        'notes'
     ];
 
     public function user()

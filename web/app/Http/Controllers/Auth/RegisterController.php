@@ -28,7 +28,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/construccion';
 
     /**
      * Create a new controller instance.
@@ -48,9 +48,14 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'name'          => ['required', 'string', 'max:255'],
+            'lastname'      => ['required', 'string', 'max:255'],
+            'email'         => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'phone_number'  => ['required', 'string', 'max:10'],
+            'dateBirth'     => ['required', 'date'],
+            'document_type' => ['required', 'string'],
+            'document'      => ['required', 'file', 'mimes:jpg,jpeg,png,pdf', 'max:5120'],
+            'password'      => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
 
@@ -61,10 +66,28 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+        $user = User::create([
+            'name'         => $data['name'],
+            'lastname'     => $data['lastname'],
+            'email'        => $data['email'],
+            'phone_number' => $data['phone_number'],
+            'dateBirth'    => $data['dateBirth'],
+            'password'     => Hash::make($data['password']),
+            'avatar_id'    => 1,
+            'rol'          => 'user',
+            'verificated'  => 0,
         ]);
+
+        if (request()->hasFile('document')) {
+            $path = request()->file('document')->store('verificaciones', 'public');
+            \App\Models\GenderVerification::create([
+                'user_id'       => $user->id,
+                'document_path' => $path,
+                'document_type' => $data['document_type'],
+                'state'         => 'pendiente',
+            ]);
+        }
+
+        return $user;
     }
 }
