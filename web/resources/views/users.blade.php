@@ -40,7 +40,12 @@
           @if($user->verificated)
             <span class="badge b-res">Verificada</span>
           @else
-            <span class="badge b-pen">Sin verificar</span>
+            <span class="badge b-pen">Pendiente</span>
+            <form action="{{ route('users.verify', $user->id) }}" method="post">
+            @csrf
+            @method("PATCH")  
+            <button type="submit" class="btn btn-sm btn-success"><i class="fa-regular fa-circle-check"></i></button>
+            </form>
           @endif
         </td>
         <td>{{ \Carbon\Carbon::parse($user->created_at)->format('d M Y') }}</td>

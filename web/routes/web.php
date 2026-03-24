@@ -24,6 +24,7 @@ Route::middleware('auth')->group(function () {
     // Usuarias
     Route::get('/users', [UsersController::class, 'index']);
     Route::delete('/users/{id}', [UsersController::class, 'destroy'])->name('users.destroy');
+    Route::patch('/users/{user}/verify', [UsersController::class, 'verify'])->name('users.verify');
 
     // Denuncias
     Route::get('/denuncias', [ComplaintController::class, 'complaint']);

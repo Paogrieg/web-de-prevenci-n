@@ -19,4 +19,8 @@ class UsersController extends Controller
         $user->delete();
         return redirect('/users')->with('success', 'Usuaria eliminada correctamente.');
     }
+    public function verify(User $user){
+        $user->update(['verificated'=> true]);
+        return back()->with('success', 'Usuaria Verificada');
+    }
 }
