@@ -14,7 +14,9 @@ use App\Http\Controllers\GenderVerificationController;
 Route::get('/', function () {
     return view('dashboard');
 })->middleware('auth');
-
+Route::get('/docs', function () {
+    return view('docs');
+});
 Route::get('/inicio', function () {
     return view('inicio');
 })->middleware('auth');
