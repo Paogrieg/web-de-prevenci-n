@@ -49,7 +49,17 @@ class EmergencyContactController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $emergencyContact = EmergencyContact::find($id);
+        if($emergencyContact == null){
+            return response()->json([
+                "message"=>"Contacto de emergencia no encontrado",
+                "status"=>"error"
+            ],404);
+        }
+        return response()->json([
+            "data"=>$emergencyContact,
+            "status"=>"success"
+        ],200);
     }
 
     /**
@@ -65,7 +75,20 @@ class EmergencyContactController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $valideted = $request->validate([
+            'name' => 'required|min:3|max:100',
+            'phone_number' => 'required|min:10|max:13',
+            'relationship' => 'required|min:10|max:30',
+        ]);
+        $up = EmergencyContact::find($id);
+        $up->name = $request->name;
+        $up->phone_number = $request->phone_number;
+        $up->relationship = $request->relationship;
+        $up->save();
+        return response()->json([
+            "data"=>$up,
+            "status"=>"success"
+        ],201);
     }
 
     /**

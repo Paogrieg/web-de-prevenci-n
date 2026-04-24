@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Laws;
+use App\Models\Law;
 
 class LawsController extends Controller
 {
@@ -13,7 +13,7 @@ class LawsController extends Controller
      */
     public function index()
     {
-        $laws = Laws::all();
+        $laws = Law::all();
         return response()->json([
             "data"=>$laws,
             "status"=>"success"
@@ -49,7 +49,17 @@ class LawsController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $law = Laws::find($id);
+        if($law == null){
+            return response()->json([
+                "message"=>"Ley no encontrada",
+                "status"=>"error"
+            ],404);
+        }
+        return response()->json([
+            "data"=>$law,
+            "status"=>"success"
+        ],200);
     }
 
     /**
@@ -65,7 +75,18 @@ class LawsController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $valideted = $request->validate([
+            'description' => 'required|min:3|max:200',
+            'state' => 'required|min:10|max:13',
+        ]);
+        $up = Laws::find($id);
+        $up->description = $request->description;
+        $up->state = $request->state;
+        $up->save();
+        return response()->json([
+            "data"=>$up,
+            "status"=>"success"
+        ],201);
     }
 
     /**

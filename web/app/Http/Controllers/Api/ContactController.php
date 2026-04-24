@@ -50,7 +50,17 @@ class ContactController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $contact = Contact::find($id);
+        if($contact == null){
+            return response()->json([
+                "message"=>"Contacto no encontrado",
+                "status"=>"error"
+            ],404);
+        }
+        return response()->json([
+            "data"=>$contact,
+            "status"=>"success"
+        ],200);
     }
 
     /**
@@ -66,7 +76,18 @@ class ContactController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $valideted = $request->validate([
+            'message' => 'required|min:3|max:200',
+            'status' => 'required|enum:new,answered ',
+        ]);
+        $up = Contact::find($id);
+        $up->message = $request->message;
+        $up->status = $request->status;
+        $up->save();
+        return response()->json([
+            "data"=>$up,
+            "status"=>"success"
+        ],201);
     }
 
     /**

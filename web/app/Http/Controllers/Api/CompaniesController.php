@@ -65,7 +65,18 @@ class CompaniesController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $valideted = $request->validate([
+            'description' => 'required|min:3|max:200',
+            'phone_number' => 'required|min:10|max:13',
+        ]);
+        $up = Company::find($id);
+        $up->description = $request->description;
+        $up->phone_number = $request->phone_number;
+        $up->save();
+        return response()->json([
+            "data"=>$up,
+            "status"=>"success"
+        ],201);
     }
 
     /**

@@ -49,7 +49,17 @@ class VerificationController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $verification = Verification::find($id);
+        if($verification == null){
+            return response()->json([
+                "message"=>"Verificación no encontrada",
+                "status"=>"error"
+            ],404);
+        }
+        return response()->json([
+            "data"=>$verification,
+            "status"=>"success"
+        ],200);
     }
 
     /**
@@ -65,7 +75,18 @@ class VerificationController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $valideted = $request->validate([
+            'state' => 'required|in:pendiente,aprobada,rechazada',
+            'date_verification' => 'required|date',
+        ]);
+        $up = Verification::find($id);
+        $up->state = $request->state;
+        $up->date_verification = $request->date_verification;
+        $up->save();
+        return response()->json([
+            "data"=>$up,
+            "status"=>"success"
+        ],200);
     }
 
     /**

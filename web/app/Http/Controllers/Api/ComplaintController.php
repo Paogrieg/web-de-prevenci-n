@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Compalaint;
+use App\Models\Complaint;
 
 class ComplaintController extends Controller
 {
@@ -49,7 +49,17 @@ class ComplaintController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $complaint = Complaint::find($id);
+        if($complaint == null){
+            return response()->json([
+                "message"=>"Queja no encontrada",
+                "status"=>"error"
+            ],404);
+        }
+        return response()->json([
+            "data"=>$adviser,
+            "status"=>"success"
+        ],200);
     }
 
     /**
@@ -65,7 +75,20 @@ class ComplaintController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+          $valideted = $request->validate([
+            'description' => 'required|min:3|max:300',
+            'status' => 'required|enum:pendiente,revision,resuelto',
+            'date' => 'required|date',
+        ]);
+        $up = Complaint::find($id);
+        $up->description = $request->description;
+        $up->status = $request->status;
+        $up->date = $request->date; 
+        $up->save();
+        return response()->json([
+            "data"=>$up,
+            "status"=>"success"
+        ],201);
     }
 
     /**

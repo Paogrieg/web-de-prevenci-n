@@ -63,7 +63,17 @@ class AdvertisingController extends Controller
      */
     public function show(string $id)
     {
-        //
+         $advertising = Advertising::find($id);
+        if($advertising == null){
+            return response()->json([
+                "message"=>"Publicidad no encontrada",
+                "status"=>"error"
+            ],404);
+        }
+        return response()->json([
+            "data"=>$advertising,
+            "status"=>"success"
+        ],200);
     }
 
     /**
@@ -79,7 +89,23 @@ class AdvertisingController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $valideted = $request->validate([
+            'image' => 'required|min:3|max:200',
+            'start_date' => 'required|date',
+            'end_date' => 'required|date',
+            'active' => 'required|boolean',
+        ]);
+        $up = Advertising::find($id);
+        $up->image = $request->image;
+        $up->start_date = $request->start_date;
+        $up->end_date = $request->end_date;
+        $up->active = $request->active;
+
+        $up->save();
+        return response()->json([
+            "data"=>$up,
+            "status"=>"success"
+        ],201);
     }
 
     /**
