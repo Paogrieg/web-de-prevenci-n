@@ -50,7 +50,17 @@ class GenderVerificationController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $genderVerification = GenderVerification::find($id);
+        if($genderVerification == null){
+            return response()->json([
+                "message"=>"Verificación de género no encontrada",
+                "status"=>"error"
+            ],404);
+        }
+        return response()->json([
+            "data"=>$genderVerification,
+            "status"=>"success"
+        ],200);
     }
 
     /**
@@ -66,7 +76,18 @@ class GenderVerificationController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $valideted = $request->validate([
+            'state' => 'required|enum:pendiente,aprobada,rechazada',
+            'notes' => 'required|string',
+        ]);
+        $up = GenderVerification::find($id);
+        $up->state = $request->state;
+        $up->notes = $request->notes;
+        $up->save();
+        return response()->json([
+            "data"=>$up,
+            "status"=>"success"
+        ],201);
     }
 
     /**

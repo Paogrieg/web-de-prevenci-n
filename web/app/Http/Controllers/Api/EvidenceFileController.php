@@ -49,7 +49,17 @@ class EvidenceFileController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $evidenceFile = EvidenceFile::find($id);
+        if($evidenceFile == null){
+            return response()->json([
+                "message"=>"Archivo de evidencia no encontrado",
+                "status"=>"error"
+            ],404);
+        }
+        return response()->json([
+            "data"=>$evidenceFile,
+            "status"=>"success"
+        ],200);
     }
 
     /**
@@ -65,7 +75,18 @@ class EvidenceFileController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $valideted = $request->validate([
+            'rute' => 'required|min:3|max:200',
+            'description' => 'required|min:3|max:300',
+        ]);
+        $up = EvidenceFile::find($id);
+        $up->rute = $request->rute;
+        $up->description = $request->description;
+        $up->save();
+        return response()->json([
+            "data"=>$up,
+            "status"=>"success"
+        ],201);
     }
 
     /**

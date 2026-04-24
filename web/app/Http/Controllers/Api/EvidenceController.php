@@ -49,7 +49,17 @@ class EvidenceController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $evidence = Evidence::find($id);
+        if($evidence == null){
+            return response()->json([
+                "message"=>"Evidencia no encontrada",
+                "status"=>"error"
+            ],404);
+        }
+        return response()->json([
+            "data"=>$evidence,
+            "status"=>"success"
+        ],200); 
     }
 
     /**

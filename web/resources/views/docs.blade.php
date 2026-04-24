@@ -287,17 +287,32 @@
                                 <h6 class="fw-bold mb-3">Request Body</h6>
                                 <div class="code-block-header">JSON Payload</div>
                                 <pre><code class="language-json">{
-    "email": "usuario@bitcorp.com",
-    "password": "password123"
+"email":"paola.griego@gmail.com",
+"password":"123456"
 }</code></pre>
                             </div>
                             <div class="col-md-6">
                                 <h6 class="fw-bold mb-3">Response (200 OK)</h6>
                                 <div class="code-block-header">JSON Recovery</div>
                                 <pre><code class="language-json">{
-    "access_token": "eyJhbGciOiJIUzI1NiIsInR5c...",
-    "token_type": "bearer",
-    "expires_in": 3600
+
+  "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzc3MDYxOTIwLCJleHAiOjE3NzcwNjU1MjAsIm5iZiI6MTc3NzA2MTkyMCwianRpIjoiR09PdHJEU1pUSUY3eWpBOCIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.hwmiWLD47dp0_eO1q738jMHEIPThF4XZ_Kw6tpiCSDI",
+  "user": {
+    "id": 1,
+    "name": "Paola",
+    "lastname": "Griego",
+    "email": "paola.griego@gmail.com",
+    "email_verified_at": null,
+    "phone_number": "6361346901",
+    "dateBirth": "2005-08-17",
+    "avatar_id": 1,
+    "rol": "user",
+    "verificated": 1,
+    "created_at": "2026-03-23T00:09:20.000000Z",
+    "updated_at": "2026-03-24T00:25:02.000000Z"
+  },
+  "expires_in": 3600
+
 }</code></pre>
                             </div>
                         </div>
@@ -342,28 +357,44 @@
                         <span class="api-endpoint">/api/user</span>
                     </div>
                     <div class="api-body">
-                        <p>Actualiza la información del perfil del usuario.</p>
+                        <p>Agrega nuevo usuario.</p>
                         
                         <div class="row mt-4">
                             <div class="col-md-6">
                                 <h6 class="fw-bold mb-3">Request Body</h6>
                                 <div class="code-block-header">JSON Payload</div>
                                 <pre><code class="language-json">{
-    "name": "Nuevo Nombre",
-    "email": "nuevo@email.com"
-}</code></pre>
+"name": "Yuritsy",
+  "lastname": "Andazola",
+  "email": "Yuritsy@gmail.com",
+  "email_verified_at": null,
+  "phone_number": "6521064015",
+  "dateBirth": "2005-09-05",
+  "avatar_id": 1,
+  "rol": "user",
+  "verificated": 1,
+  "created_at": "2026-03-23T00:09:20.000000Z",
+  "updated_at": "2026-03-24T00:25:02.000000Z"
                             </div>
                             <div class="col-md-6">
                                 <h6 class="fw-bold mb-3">Response (200 OK)</h6>
                                 <div class="code-block-header">JSON Payload</div>
                                 <pre><code class="language-json">{
-    "status": "success",
-    "message": "Perfil actualizado correctamente",
-    "user": {
-        "id": 1,
-        "name": "Nuevo Nombre",
-        "email": "nuevo@email.com"
-    }
+
+  "id": 1,
+  "name": "Yuritsy",
+  "lastname": "Griego",
+  "email": "Yuritsy@gmail.com",
+  "email_verified_at": null,
+  "phone_number": "6361346901",
+  "dateBirth": "2005-08-17",
+  "avatar_id": 1,
+  "rol": "user",
+  "verificated": 1,
+  "created_at": "2026-03-23T00:09:20.000000Z",
+  "updated_at": "2026-04-24T20:28:37.000000Z"
+
+    
 }</code></pre>
                             </div>
                         </div>

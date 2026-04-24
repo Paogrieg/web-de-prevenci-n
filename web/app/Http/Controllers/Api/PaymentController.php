@@ -49,7 +49,17 @@ class PaymentController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $payment = Pay::find($id);
+        if($payment == null){
+            return response()->json([
+                "message"=>"Pago no encontrado",
+                "status"=>"error"
+            ],404);
+        }
+        return response()->json([
+            "data"=>$payment,
+            "status"=>"success"
+        ],200);
     }
 
     /**
@@ -65,7 +75,20 @@ class PaymentController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $valideted = $request->validate([
+            'cost' => 'required|decimal:0,2',
+            'payment_method' => 'required|min:3|max:255',
+            'status' => 'required|enum:in_process,canceled,completed',
+        ]);
+        $up = Pay::find($id);
+        $up->cost = $request->cost;
+        $up->payment_method = $request->payment_method;
+        $up->status = $request->status;
+        $up->save();
+        return response()->json([
+            "data"=>$up,
+            "status"=>"success"
+        ],200);
     }
 
     /**

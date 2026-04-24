@@ -49,7 +49,17 @@ class TestimonialsController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $testimony = Testimony::find($id);
+        if($testimony == null){
+            return response()->json([
+                "message"=>"Testimonio no encontrado",
+                "status"=>"error"
+            ],404);
+        }
+        return response()->json([
+            "data"=>$testimony,
+            "status"=>"success"
+        ],200);
     }
 
     /**
@@ -65,7 +75,16 @@ class TestimonialsController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $valideted = $request->validate([
+            'content' => 'required|string',
+        ]);
+        $up = Testimony::find($id);
+        $up->content = $request->content;
+        $up->save();
+        return response()->json([
+            "data"=>$up,
+            "status"=>"success"
+        ],200);
     }
 
     /**

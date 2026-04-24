@@ -49,7 +49,17 @@ class CollaborationController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $collaboration = Collaboration::find($id);
+        if($collaboration == null){
+            return response()->json([
+                "message"=>"Collaboration no encontrada",
+                "status"=>"error"
+            ],404);
+        }
+        return response()->json([
+            "data"=>$collaboration,
+            "status"=>"success"
+        ],200);
     }
 
     /**
@@ -65,7 +75,16 @@ class CollaborationController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+          $valideted = $request->validate([
+            'description' => 'required|min:3|max:200',
+        ]);
+        $up = Collaboration::find($id);
+        $up->description = $request->description;
+        $up->save();
+        return response()->json([
+            "data"=>$up,
+            "status"=>"success"
+        ],201);
     }
 
     /**

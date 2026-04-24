@@ -49,7 +49,17 @@ class RecordController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $record = Record::find($id);
+        if($record == null){
+            return response()->json([
+                "message"=>"Registro no encontrado",
+                "status"=>"error"
+            ],404);
+        }
+        return response()->json([
+            "data"=>$record,
+            "status"=>"success"
+        ],200);
     }
 
     /**
@@ -65,7 +75,18 @@ class RecordController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $valideted = $request->validate([
+            'action' => 'required|min:3|max:200',
+            'description' => 'required|min:10|max:300',
+        ]);
+        $up = Record::find($id);
+        $up->action = $request->action;
+        $up->description = $request->description;
+        $up->save();
+        return response()->json([
+            "data"=>$up,
+            "status"=>"success"
+        ],200);
     }
 
     /**

@@ -49,7 +49,17 @@ class AvatarController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $avatar = Avatar::find($id);
+        if($avatar == null){
+            return response()->json([
+                "message"=>"Avatar no encontrado",
+                "status"=>"error"
+            ],404);
+        }
+        return response()->json([
+            "data"=>$avatar,
+            "status"=>"success"
+        ],200);
     }
 
     /**
@@ -65,7 +75,16 @@ class AvatarController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $valideted = $request->validate([
+            'rute' => 'required|min:3|max:200',
+        ]);
+        $up = Avatar::find($id);
+        $up->rute = $request->rute ;
+        $up->save();
+        return response()->json([
+            "data"=>$up,
+            "status"=>"success"
+        ],201);
     }
 
     /**

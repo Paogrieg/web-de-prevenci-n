@@ -50,7 +50,17 @@ class SeguimientoCasoController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $seguimiento = SeguimientoCaso::find($id);
+        if($seguimiento == null){
+            return response()->json([
+                "message"=>"Seguimiento no encontrado",
+                "status"=>"error"
+            ],404);
+        }
+        return response()->json([
+            "data"=>$seguimiento,
+            "status"=>"success"
+        ],200);
     }
 
     /**
@@ -66,7 +76,18 @@ class SeguimientoCasoController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $valideted = $request->validate([
+            'status' => 'required|enum:in_process,resolved,closed',
+            'comments' => 'required|string',
+        ]);
+        $up = SeguimientoCaso::find($id);
+        $up->status = $request->status;
+        $up->comments = $request->comments;
+        $up->save();
+        return response()->json([
+            "data"=>$up,
+            "status"=>"success"
+        ],200);
     }
 
     /**

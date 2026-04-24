@@ -53,7 +53,17 @@ class AdviserController extends Controller
      */
     public function show(string $id)
     {
-        //
+         $adviser = Adviser::find($id);
+        if($adviser == null){
+            return response()->json([
+                "message"=>"Asesor no encontrado",
+                "status"=>"error"
+            ],404);
+        }
+        return response()->json([
+            "data"=>$adviser,
+            "status"=>"success"
+        ],200);
     }
 
     /**
@@ -69,7 +79,18 @@ class AdviserController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+          $valideted = $request->validate([
+            'email' => 'required|min:3|max:200',
+            'phone_number' => 'required|min:10|max:13',
+        ]);
+        $up = Adviser::find($id);
+        $up->email = $request->email;
+        $up->phone_number = $request->phone_number;
+        $up->save();
+        return response()->json([
+            "data"=>$up,
+            "status"=>"success"
+        ],201);
     }
 
     /**
