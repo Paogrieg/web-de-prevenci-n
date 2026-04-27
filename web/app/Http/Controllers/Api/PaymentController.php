@@ -33,9 +33,21 @@ class PaymentController extends Controller
      */
     public function store(Request $request)
     {
+         $validated = $request->validate([
+        'cost' => 'required|numeric',
+        'payment_method' => 'required|string|max:255',
+        'payment_reference' => 'required|string|max:255',
+        'status' => 'required|in:in_process,canceled,completed',
+        'payment_date' => 'required|date',
+        'verification_id' => 'required|exists:verification,id',
+    ]);
         $payment = new Pay();
-        $payment->amount = $request->amount;
-        $payment->method = $request->method;
+        $payment->cost = $request->cost;
+        $payment->payment_method = $request->payment_method;
+        $payment->payment_reference = $request->payment_reference;
+        $payment->status = $request->status;
+        $payment->payment_date = $request->payment_date;
+        $payment->verification_id = $request->verification_id;
         $payment->save();
 
         return response()->json([
@@ -78,7 +90,7 @@ class PaymentController extends Controller
         $valideted = $request->validate([
             'cost' => 'required|decimal:0,2',
             'payment_method' => 'required|min:3|max:255',
-            'status' => 'required|enum:in_process,canceled,completed',
+            'status' => 'required|in:in_process,canceled,completed',
         ]);
         $up = Pay::find($id);
         $up->cost = $request->cost;

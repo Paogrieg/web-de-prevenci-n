@@ -33,15 +33,16 @@ class AvatarController extends Controller
      */
     public function store(Request $request)
     {
+        $validated = $request->validate([
+            'rute' => 'required|min:3|max:200',
+        ]);
         $avatar = new Avatar();
-        $avatar->name = $request->name;
-        $avatar->image = $request->image;
+        $avatar->rute = $request->rute;
         $avatar->save();
-
         return response()->json([
             "data"=>$avatar,
             "status"=>"success"
-        ],200);
+        ],201);
     }
 
     /**

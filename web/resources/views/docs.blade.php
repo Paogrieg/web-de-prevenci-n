@@ -245,7 +245,46 @@ pre[class*="language-"] {margin-top:0!important;border-radius:0 0 8px 8px!import
 <pre><code class="language-json">{
   "data": [
     {
-      "id": 1
+      "id": 1,
+      "name": "Paola",
+      "lastname": "Griego",
+      "email": "paola.griego@gmail.com",
+      "email_verified_at": null,
+      "phone_number": "6361346901",
+      "dateBirth": "2005-08-17",
+      "avatar_id": 1,
+      "rol": "user",
+      "verificated": 0,
+      "created_at": "2026-04-26T19:45:01.000000Z",
+      "updated_at": null
+    },
+    {
+      "id": 2,
+      "name": "Mittsy",
+      "lastname": "Andazola",
+      "email": "mittsyyy@gmail.com",
+      "email_verified_at": null,
+      "phone_number": "6521048807",
+      "dateBirth": "2005-09-05",
+      "avatar_id": 2,
+      "rol": "admin",
+      "verificated": 1,
+      "created_at": "2026-04-26T19:45:01.000000Z",
+      "updated_at": "2026-04-26T19:45:01.000000Z"
+    },
+    {
+      "id": 3,
+      "name": "Dayana",
+      "lastname": "Olivas",
+      "email": "daya@gmail.com",
+      "email_verified_at": null,
+      "phone_number": "6361234567",
+      "dateBirth": "2005-01-01",
+      "avatar_id": 1,
+      "rol": "user",
+      "verificated": 0,
+      "created_at": "2026-04-26T19:57:47.000000Z",
+      "updated_at": "2026-04-26T19:57:47.000000Z"
     }
   ],
   "status": "success"
@@ -274,7 +313,7 @@ pre[class*="language-"] {margin-top:0!important;border-radius:0 0 8px 8px!import
   "password": "123456",
   "dateBirth": "2005-09-20",
   "avatar_id": 4,
-  "rol": 1,
+  "rol": "user",
   "verificated": true
 }</code></pre>
 
@@ -296,8 +335,18 @@ pre[class*="language-"] {margin-top:0!important;border-radius:0 0 8px 8px!import
 <h6 class="fw-bold mb-3">Response</h6>
 <div class="code-block-header">JSON Response</div>
 <pre><code class="language-json">{
-  "data": {
-    "id": 1
+"data": {
+    "name": "Dayana",
+    "lastname": "Perez",
+    "phone_number": "6521049466",
+    "email": "dayaaa@gmail.com",
+    "dateBirth": "2005-09-20",
+    "avatar_id": 4,
+    "rol": "user",
+    "verificated": true,
+    "updated_at": "2026-04-26T20:11:35.000000Z",
+    "created_at": "2026-04-26T20:11:35.000000Z",
+    "id": 5
   },
   "status": "success"
 }</code></pre>
@@ -320,7 +369,18 @@ pre[class*="language-"] {margin-top:0!important;border-radius:0 0 8px 8px!import
 <div class="code-block-header">JSON Response</div>
 <pre><code class="language-json">{
   "data": {
-    "id": 1
+    "id": 1,
+    "name": "Paola",
+    "lastname": "Griego",
+    "email": "paola.griego@gmail.com",
+    "email_verified_at": null,
+    "phone_number": "6361346901",
+    "dateBirth": "2005-08-17",
+    "avatar_id": 1,
+    "rol": "user",
+    "verificated": 0,
+    "created_at": "2026-04-26T19:45:01.000000Z",
+    "updated_at": null
   },
   "status": "success"
 }</code></pre>
@@ -351,7 +411,18 @@ pre[class*="language-"] {margin-top:0!important;border-radius:0 0 8px 8px!import
 <div class="code-block-header">JSON Response</div>
 <pre><code class="language-json">{
   "data": {
-    "id": 1
+    "id": 3,
+    "name": "Dayana Actualizada",
+    "lastname": "Olivas",
+    "email": "daya.actualizada@example.com",
+    "email_verified_at": null,
+    "phone_number": "6361234567",
+    "dateBirth": "2005-01-01",
+    "avatar_id": 1,
+    "rol": "user",
+    "verificated": 0,
+    "created_at": "2026-04-26T19:57:47.000000Z",
+    "updated_at": "2026-04-26T20:15:18.000000Z"
   },
   "status": "success"
 }</code></pre>
@@ -401,7 +472,52 @@ pre[class*="language-"] {margin-top:0!important;border-radius:0 0 8px 8px!import
 <pre><code class="language-json">{
   "data": [
     {
-      "id": 1
+      "id": 1,
+      "title": "Campaña Contra la Violencia",
+      "image": "default2.jpg",
+      "link": "default",
+      "start_date": "2026-03-01",
+      "end_date": "2026-04-01",
+      "active": 1,
+      "company_id": 1,
+      "created_at": "2026-04-26T19:45:01.000000Z",
+      "updated_at": "2026-04-26T19:45:01.000000Z"
+    },
+    {
+      "id": 2,
+      "title": "Apoyo para Mujeres",
+      "image": "default3.jpg",
+      "link": "default",
+      "start_date": "2026-03-10",
+      "end_date": "2026-05-10",
+      "active": 1,
+      "company_id": 1,
+      "created_at": "2026-04-26T19:45:01.000000Z",
+      "updated_at": "2026-04-26T19:45:01.000000Z"
+    },
+    {
+      "id": 3,
+      "title": "Campaña Contra la Violencia",
+      "image": "default2.jpg",
+      "link": "default",
+      "start_date": "2026-03-01",
+      "end_date": "2026-04-01",
+      "active": 1,
+      "company_id": 1,
+      "created_at": "2026-04-26T19:45:01.000000Z",
+      "updated_at": "2026-04-26T19:45:01.000000Z"
+    },
+    {
+      "id": 4,
+      "title": "Apoyo para Mujeres",
+      "image": "default3.jpg",
+      "link": "default",
+      "start_date": "2026-03-10",
+      "end_date": "2026-05-10",
+      "active": 1,
+      "company_id": 1,
+      "created_at": "2026-04-26T19:45:01.000000Z",
+      "updated_at": "2026-04-26T19:45:01.000000Z"
     }
   ],
   "status": "success"
@@ -436,8 +552,17 @@ pre[class*="language-"] {margin-top:0!important;border-radius:0 0 8px 8px!import
 <h6 class="fw-bold mb-3">Response</h6>
 <div class="code-block-header">JSON Response</div>
 <pre><code class="language-json">{
-  "data": {
-    "id": 1
+   "data": {
+    "title": "Campaña principal",
+    "image": "banner.jpg",
+    "link": "https://example.com",
+    "start_date": "2026-04-01",
+    "end_date": "2026-04-30",
+    "active": true,
+    "company_id": 1,
+    "updated_at": "2026-04-26T20:17:29.000000Z",
+    "created_at": "2026-04-26T20:17:29.000000Z",
+    "id": 5
   },
   "status": "success"
 }</code></pre>
@@ -460,7 +585,16 @@ pre[class*="language-"] {margin-top:0!important;border-radius:0 0 8px 8px!import
 <div class="code-block-header">JSON Response</div>
 <pre><code class="language-json">{
   "data": {
-    "id": 1
+    "id": 1,
+    "title": "Campaña Contra la Violencia",
+    "image": "default2.jpg",
+    "link": "default",
+    "start_date": "2026-03-01",
+    "end_date": "2026-04-01",
+    "active": 1,
+    "company_id": 1,
+    "created_at": "2026-04-26T19:45:01.000000Z",
+    "updated_at": "2026-04-26T19:45:01.000000Z"
   },
   "status": "success"
 }</code></pre>
@@ -492,7 +626,16 @@ pre[class*="language-"] {margin-top:0!important;border-radius:0 0 8px 8px!import
 <div class="code-block-header">JSON Response</div>
 <pre><code class="language-json">{
   "data": {
-    "id": 1
+    "id": 1,
+    "title": "Campaña Contra la Violencia",
+    "image": "banner_actualizado.jpg",
+    "link": "default",
+    "start_date": "2026-04-01",
+    "end_date": "2026-05-01",
+    "active": true,
+    "company_id": 1,
+    "created_at": "2026-04-26T19:45:01.000000Z",
+    "updated_at": "2026-04-26T20:19:39.000000Z"
   },
   "status": "success"
 }</code></pre>
@@ -540,9 +683,50 @@ pre[class*="language-"] {margin-top:0!important;border-radius:0 0 8px 8px!import
 <h6 class="fw-bold mb-3">Response</h6>
 <div class="code-block-header">JSON Response</div>
 <pre><code class="language-json">{
-  "data": [
+ "data": [
     {
-      "id": 1
+      "id": 1,
+      "name": "Laura",
+      "lastname": "Martínez",
+      "email": "laura.martinez@gmail.com",
+      "phone_number": "6361234567",
+      "specialty": "Psicología",
+      "institution": "Centro de Atención a la Mujer",
+      "created_at": "2026-04-26T19:45:00.000000Z",
+      "updated_at": "2026-04-26T19:45:00.000000Z"
+    },
+    {
+      "id": 2,
+      "name": "Daniela",
+      "lastname": "Ramírez",
+      "email": "daniela.ramirez@gmail.com",
+      "phone_number": "6369876543",
+      "specialty": "Trabajo Social",
+      "institution": "Instituto Chihuahuense de la Mujer",
+      "created_at": "2026-04-26T19:45:00.000000Z",
+      "updated_at": "2026-04-26T19:45:00.000000Z"
+    },
+    {
+      "id": 3,
+      "name": "Laura",
+      "lastname": "Gonzalez",
+      "email": "laura@gmail.com",
+      "phone_number": "6561234567",
+      "specialty": "Psicologia",
+      "institution": "Centro de Apoyo a la Mujer",
+      "created_at": "2026-04-26T19:45:00.000000Z",
+      "updated_at": "2026-04-26T19:45:00.000000Z"
+    },
+    {
+      "id": 4,
+      "name": "Mariana",
+      "lastname": "Lopez",
+      "email": "mariana@gmail.com",
+      "phone_number": "6569876543",
+      "specialty": "Derecho Familiar",
+      "institution": "Instituto de la Mujer",
+      "created_at": "2026-04-26T19:45:00.000000Z",
+      "updated_at": "2026-04-26T19:45:00.000000Z"
     }
   ],
   "status": "success"
@@ -576,8 +760,16 @@ pre[class*="language-"] {margin-top:0!important;border-radius:0 0 8px 8px!import
 <h6 class="fw-bold mb-3">Response</h6>
 <div class="code-block-header">JSON Response</div>
 <pre><code class="language-json">{
-  "data": {
-    "id": 1
+ "data": {
+    "name": "Ana",
+    "lastname": "López",
+    "email": "ana@example.com",
+    "phone_number": "6361234567",
+    "specialty": "Legal",
+    "institution": "Institución A",
+    "updated_at": "2026-04-26T20:24:14.000000Z",
+    "created_at": "2026-04-26T20:24:14.000000Z",
+    "id": 5
   },
   "status": "success"
 }</code></pre>
@@ -599,8 +791,16 @@ pre[class*="language-"] {margin-top:0!important;border-radius:0 0 8px 8px!import
 <h6 class="fw-bold mb-3">Response</h6>
 <div class="code-block-header">JSON Response</div>
 <pre><code class="language-json">{
-  "data": {
-    "id": 1
+ "data": {
+    "id": 1,
+    "name": "Laura",
+    "lastname": "Martínez",
+    "email": "laura.martinez@gmail.com",
+    "phone_number": "6361234567",
+    "specialty": "Psicología",
+    "institution": "Centro de Atención a la Mujer",
+    "created_at": "2026-04-26T19:45:00.000000Z",
+    "updated_at": "2026-04-26T19:45:00.000000Z"
   },
   "status": "success"
 }</code></pre>
@@ -629,8 +829,16 @@ pre[class*="language-"] {margin-top:0!important;border-radius:0 0 8px 8px!import
 <h6 class="fw-bold mb-3">Response</h6>
 <div class="code-block-header">JSON Response</div>
 <pre><code class="language-json">{
-  "data": {
-    "id": 1
+    "data": {
+    "id": 3,
+    "name": "Laura",
+    "lastname": "Gonzalez",
+    "email": "ana.actualizada@example.com",
+    "phone_number": "6367654321",
+    "specialty": "Psicologia",
+    "institution": "Centro de Apoyo a la Mujer",
+    "created_at": "2026-04-26T19:45:00.000000Z",
+    "updated_at": "2026-04-26T20:25:22.000000Z"
   },
   "status": "success"
 }</code></pre>
@@ -678,9 +886,61 @@ pre[class*="language-"] {margin-top:0!important;border-radius:0 0 8px 8px!import
 <h6 class="fw-bold mb-3">Response</h6>
 <div class="code-block-header">JSON Response</div>
 <pre><code class="language-json">{
-  "data": [
+   "data": [
     {
-      "id": 1
+      "id": 1,
+      "name": "Laura",
+      "lastname": "Martínez",
+      "email": "laura.martinez@gmail.com",
+      "phone_number": "6361234567",
+      "specialty": "Psicología",
+      "institution": "Centro de Atención a la Mujer",
+      "created_at": "2026-04-26T19:45:00.000000Z",
+      "updated_at": "2026-04-26T19:45:00.000000Z"
+    },
+    {
+      "id": 2,
+      "name": "Daniela",
+      "lastname": "Ramírez",
+      "email": "daniela.ramirez@gmail.com",
+      "phone_number": "6369876543",
+      "specialty": "Trabajo Social",
+      "institution": "Instituto Chihuahuense de la Mujer",
+      "created_at": "2026-04-26T19:45:00.000000Z",
+      "updated_at": "2026-04-26T19:45:00.000000Z"
+    },
+    {
+      "id": 3,
+      "name": "Laura",
+      "lastname": "Gonzalez",
+      "email": "ana.actualizada@example.com",
+      "phone_number": "6367654321",
+      "specialty": "Psicologia",
+      "institution": "Centro de Apoyo a la Mujer",
+      "created_at": "2026-04-26T19:45:00.000000Z",
+      "updated_at": "2026-04-26T20:25:22.000000Z"
+    },
+    {
+      "id": 4,
+      "name": "Mariana",
+      "lastname": "Lopez",
+      "email": "mariana@gmail.com",
+      "phone_number": "6569876543",
+      "specialty": "Derecho Familiar",
+      "institution": "Instituto de la Mujer",
+      "created_at": "2026-04-26T19:45:00.000000Z",
+      "updated_at": "2026-04-26T19:45:00.000000Z"
+    },
+    {
+      "id": 5,
+      "name": "Ana",
+      "lastname": "López",
+      "email": "ana@example.com",
+      "phone_number": "6361234567",
+      "specialty": "Legal",
+      "institution": "Institución A",
+      "created_at": "2026-04-26T20:24:14.000000Z",
+      "updated_at": "2026-04-26T20:24:14.000000Z"
     }
   ],
   "status": "success"
@@ -714,8 +974,16 @@ pre[class*="language-"] {margin-top:0!important;border-radius:0 0 8px 8px!import
 <h6 class="fw-bold mb-3">Response</h6>
 <div class="code-block-header">JSON Response</div>
 <pre><code class="language-json">{
-  "data": {
-    "id": 1
+   "data": {
+    "name": "Laura",
+    "lastname": "Pérez",
+    "email": "laura@example.com",
+    "phone_number": "6362223344",
+    "specialty": "Psicología",
+    "institution": "Institución B",
+    "updated_at": "2026-04-26T20:26:35.000000Z",
+    "created_at": "2026-04-26T20:26:35.000000Z",
+    "id": 6
   },
   "status": "success"
 }</code></pre>
@@ -738,7 +1006,15 @@ pre[class*="language-"] {margin-top:0!important;border-radius:0 0 8px 8px!import
 <div class="code-block-header">JSON Response</div>
 <pre><code class="language-json">{
   "data": {
-    "id": 1
+    "id": 6,
+    "name": "Laura",
+    "lastname": "Pérez",
+    "email": "laura@example.com",
+    "phone_number": "6362223344",
+    "specialty": "Psicología",
+    "institution": "Institución B",
+    "created_at": "2026-04-26T20:26:35.000000Z",
+    "updated_at": "2026-04-26T20:26:35.000000Z"
   },
   "status": "success"
 }</code></pre>
@@ -767,8 +1043,16 @@ pre[class*="language-"] {margin-top:0!important;border-radius:0 0 8px 8px!import
 <h6 class="fw-bold mb-3">Response</h6>
 <div class="code-block-header">JSON Response</div>
 <pre><code class="language-json">{
-  "data": {
-    "id": 1
+   "data": {
+    "id": 6,
+    "name": "Laura",
+    "lastname": "Pérez",
+    "email": "laura.actualizada@example.com",
+    "phone_number": "6369998877",
+    "specialty": "Psicología",
+    "institution": "Institución B",
+    "created_at": "2026-04-26T20:26:35.000000Z",
+    "updated_at": "2026-04-26T20:27:21.000000Z"
   },
   "status": "success"
 }</code></pre>
@@ -816,9 +1100,36 @@ pre[class*="language-"] {margin-top:0!important;border-radius:0 0 8px 8px!import
 <h6 class="fw-bold mb-3">Response</h6>
 <div class="code-block-header">JSON Response</div>
 <pre><code class="language-json">{
-  "data": [
+ "data": [
     {
-      "id": 1
+      "id": 1,
+      "rute": "default.png",
+      "created_at": null,
+      "updated_at": null
+    },
+    {
+      "id": 2,
+      "rute": "default1.png",
+      "created_at": null,
+      "updated_at": null
+    },
+    {
+      "id": 3,
+      "rute": "default.png",
+      "created_at": "2026-04-26T19:45:00.000000Z",
+      "updated_at": "2026-04-26T19:45:00.000000Z"
+    },
+    {
+      "id": 4,
+      "rute": "default3.png",
+      "created_at": "2026-04-26T19:45:00.000000Z",
+      "updated_at": "2026-04-26T19:45:00.000000Z"
+    },
+    {
+      "id": 5,
+      "rute": "default4.png",
+      "created_at": "2026-04-26T19:45:00.000000Z",
+      "updated_at": "2026-04-26T19:45:00.000000Z"
     }
   ],
   "status": "success"
@@ -840,8 +1151,7 @@ pre[class*="language-"] {margin-top:0!important;border-radius:0 0 8px 8px!import
 <h6 class="fw-bold mb-3">Request Body</h6>
 <div class="code-block-header">JSON Payload</div>
 <pre><code class="language-json">{
-  "name": "Avatar 1",
-  "image": "avatar1.png"
+   "rute": "default.png"
 }</code></pre>
 </div>
 <div class="col-md-6">
@@ -849,7 +1159,10 @@ pre[class*="language-"] {margin-top:0!important;border-radius:0 0 8px 8px!import
 <div class="code-block-header">JSON Response</div>
 <pre><code class="language-json">{
   "data": {
-    "id": 1
+    "rute": "default.png",
+    "updated_at": "2026-04-26T20:32:07.000000Z",
+    "created_at": "2026-04-26T20:32:07.000000Z",
+    "id": 6
   },
   "status": "success"
 }</code></pre>
@@ -871,8 +1184,11 @@ pre[class*="language-"] {margin-top:0!important;border-radius:0 0 8px 8px!import
 <h6 class="fw-bold mb-3">Response</h6>
 <div class="code-block-header">JSON Response</div>
 <pre><code class="language-json">{
-  "data": {
-    "id": 1
+"data": {
+    "id": 1,
+    "rute": "default.png",
+    "created_at": null,
+    "updated_at": null
   },
   "status": "success"
 }</code></pre>
@@ -893,15 +1209,18 @@ pre[class*="language-"] {margin-top:0!important;border-radius:0 0 8px 8px!import
 <h6 class="fw-bold mb-3">Request Body</h6>
 <div class="code-block-header">JSON Payload</div>
 <pre><code class="language-json">{
-  "rute": "avatars/avatar1.png"
+  "rute": "avataractualizado.png"
 }</code></pre>
 </div>
 <div class="col-md-6">
 <h6 class="fw-bold mb-3">Response</h6>
 <div class="code-block-header">JSON Response</div>
 <pre><code class="language-json">{
-  "data": {
-    "id": 1
+   "data": {
+    "id": 1,
+    "rute": "avataractualizado.png",
+    "created_at": null,
+    "updated_at": "2026-04-26T20:33:50.000000Z"
   },
   "status": "success"
 }</code></pre>
@@ -949,9 +1268,42 @@ pre[class*="language-"] {margin-top:0!important;border-radius:0 0 8px 8px!import
 <h6 class="fw-bold mb-3">Response</h6>
 <div class="code-block-header">JSON Response</div>
 <pre><code class="language-json">{
-  "data": [
+   "data": [
     {
-      "id": 1
+      "id": 1,
+      "type": "Voluntariado",
+      "description": "Apoyo en talleres de prevención de violencia de género y acompañamiento a mujeres en situación de riesgo.",
+      "user_id": 1,
+      "company_id": 1,
+      "created_at": "2026-04-26T19:45:01.000000Z",
+      "updated_at": "2026-04-26T19:45:01.000000Z"
+    },
+    {
+      "id": 2,
+      "type": "Donación",
+      "description": "Donación de recursos para programas de apoyo psicológico y asesoría legal para mujeres.",
+      "user_id": 2,
+      "company_id": 1,
+      "created_at": "2026-04-26T19:45:01.000000Z",
+      "updated_at": "2026-04-26T19:45:01.000000Z"
+    },
+    {
+      "id": 3,
+      "type": "Legal",
+      "description": "Apoyo juridico a victimas",
+      "user_id": 1,
+      "company_id": 1,
+      "created_at": "2026-04-26T19:45:01.000000Z",
+      "updated_at": "2026-04-26T19:45:01.000000Z"
+    },
+    {
+      "id": 4,
+      "type": "Psicologico",
+      "description": "Terapia emocional",
+      "user_id": 1,
+      "company_id": 2,
+      "created_at": "2026-04-26T19:45:01.000000Z",
+      "updated_at": "2026-04-26T19:45:01.000000Z"
     }
   ],
   "status": "success"
@@ -973,8 +1325,10 @@ pre[class*="language-"] {margin-top:0!important;border-radius:0 0 8px 8px!import
 <h6 class="fw-bold mb-3">Request Body</h6>
 <div class="code-block-header">JSON Payload</div>
 <pre><code class="language-json">{
-  "name": "Colaboración Norte",
-  "description": "Apoyo institucional"
+   "type": "Donación",
+  "description": "Donación de recursos para programas de apoyo psicológico y asesoría legal para mujeres.",
+  "user_id": 2,
+  "company_id": 1
 }</code></pre>
 </div>
 <div class="col-md-6">
@@ -982,7 +1336,13 @@ pre[class*="language-"] {margin-top:0!important;border-radius:0 0 8px 8px!import
 <div class="code-block-header">JSON Response</div>
 <pre><code class="language-json">{
   "data": {
-    "id": 1
+    "type": "Donación",
+    "description": "Donación de recursos para programas de apoyo psicológico y asesoría legal para mujeres.",
+    "user_id": 2,
+    "company_id": 1,
+    "updated_at": "2026-04-26T20:38:05.000000Z",
+    "created_at": "2026-04-26T20:38:05.000000Z",
+    "id": 5
   },
   "status": "success"
 }</code></pre>
@@ -1004,8 +1364,14 @@ pre[class*="language-"] {margin-top:0!important;border-radius:0 0 8px 8px!import
 <h6 class="fw-bold mb-3">Response</h6>
 <div class="code-block-header">JSON Response</div>
 <pre><code class="language-json">{
-  "data": {
-    "id": 1
+ "data": {
+    "id": 2,
+    "type": "Donación",
+    "description": "Donación de recursos para programas de apoyo psicológico y asesoría legal para mujeres.",
+    "user_id": 2,
+    "company_id": 1,
+    "created_at": "2026-04-26T19:45:01.000000Z",
+    "updated_at": "2026-04-26T19:45:01.000000Z"
   },
   "status": "success"
 }</code></pre>
@@ -1033,8 +1399,14 @@ pre[class*="language-"] {margin-top:0!important;border-radius:0 0 8px 8px!import
 <h6 class="fw-bold mb-3">Response</h6>
 <div class="code-block-header">JSON Response</div>
 <pre><code class="language-json">{
-  "data": {
-    "id": 1
+   "data": {
+    "id": 2,
+    "type": "Donación",
+    "description": "Descripción actualizada de la colaboración",
+    "user_id": 2,
+    "company_id": 1,
+    "created_at": "2026-04-26T19:45:01.000000Z",
+    "updated_at": "2026-04-26T20:39:24.000000Z"
   },
   "status": "success"
 }</code></pre>
@@ -1084,7 +1456,44 @@ pre[class*="language-"] {margin-top:0!important;border-radius:0 0 8px 8px!import
 <pre><code class="language-json">{
   "data": [
     {
-      "id": 1
+      "id": 1,
+      "name": "Equoria",
+      "description": "Organización dedicada a la prevención de la violencia contra las mujeres y a brindar apoyo psicológico y legal.",
+      "logo": "equoria_logo.png",
+      "email": "contacto@equoria.org",
+      "phone_number": "6361234589",
+      "created_at": "2026-04-26T19:45:00.000000Z",
+      "updated_at": "2026-04-26T19:45:00.000000Z"
+    },
+    {
+      "id": 2,
+      "name": "Centro de Apoyo Mujer Segura",
+      "description": "Institución enfocada en ofrecer refugio, orientación legal y atención psicológica a mujeres en situación de violencia.",
+      "logo": "mujer_segura_logo.png",
+      "email": "info@mujersegura.org",
+      "phone_number": "6369874521",
+      "created_at": "2026-04-26T19:45:00.000000Z",
+      "updated_at": "2026-04-26T19:45:00.000000Z"
+    },
+    {
+      "id": 3,
+      "name": "Instituto de la Mujer",
+      "description": "Apoyo legal y psicologico",
+      "logo": "logos/imujer.png",
+      "email": "contacto@imujer.com",
+      "phone_number": "6561111111",
+      "created_at": "2026-04-26T19:45:00.000000Z",
+      "updated_at": "2026-04-26T19:45:00.000000Z"
+    },
+    {
+      "id": 4,
+      "name": "Fiscalia de la Mujer",
+      "description": "Atencion a victimas",
+      "logo": "logos/fiscalia.png",
+      "email": "fiscalia@gmail.com",
+      "phone_number": "6562222222",
+      "created_at": "2026-04-26T19:45:00.000000Z",
+      "updated_at": "2026-04-26T19:45:00.000000Z"
     }
   ],
   "status": "success"
@@ -1106,8 +1515,11 @@ pre[class*="language-"] {margin-top:0!important;border-radius:0 0 8px 8px!import
 <h6 class="fw-bold mb-3">Request Body</h6>
 <div class="code-block-header">JSON Payload</div>
 <pre><code class="language-json">{
-  "name": "Empresa Ejemplo",
-  "description": "Empresa colaboradora"
+ "name": "Equoria",
+  "description": "Organización dedicada a la prevención de la violencia contra las mujeres y a brindar apoyo psicológico y legal.",
+  "logo": "equoria_logo.png",
+  "email": "contact@equoria.org",
+  "phone_number": "6361234589"
 }</code></pre>
 </div>
 <div class="col-md-6">
@@ -1115,7 +1527,14 @@ pre[class*="language-"] {margin-top:0!important;border-radius:0 0 8px 8px!import
 <div class="code-block-header">JSON Response</div>
 <pre><code class="language-json">{
   "data": {
-    "id": 1
+    "name": "Equoria",
+    "description": "Organización dedicada a la prevención de la violencia contra las mujeres y a brindar apoyo psicológico y legal.",
+    "logo": "equoria_logo.png",
+    "email": "contact@equoria.org",
+    "phone_number": "6361234589",
+    "updated_at": "2026-04-26T20:44:38.000000Z",
+    "created_at": "2026-04-26T20:44:38.000000Z",
+    "id": 5
   },
   "status": "success"
 }</code></pre>
@@ -1137,8 +1556,15 @@ pre[class*="language-"] {margin-top:0!important;border-radius:0 0 8px 8px!import
 <h6 class="fw-bold mb-3">Response</h6>
 <div class="code-block-header">JSON Response</div>
 <pre><code class="language-json">{
-  "data": {
-    "id": 1
+   "data": {
+    "id": 1,
+    "name": "Equoria",
+    "description": "Organización dedicada a la prevención de la violencia contra las mujeres y a brindar apoyo psicológico y legal.",
+    "logo": "equoria_logo.png",
+    "email": "contacto@equoria.org",
+    "phone_number": "6361234589",
+    "created_at": "2026-04-26T19:45:00.000000Z",
+    "updated_at": "2026-04-26T19:45:00.000000Z"
   },
   "status": "success"
 }</code></pre>
@@ -1167,8 +1593,15 @@ pre[class*="language-"] {margin-top:0!important;border-radius:0 0 8px 8px!import
 <h6 class="fw-bold mb-3">Response</h6>
 <div class="code-block-header">JSON Response</div>
 <pre><code class="language-json">{
-  "data": {
-    "id": 1
+   "data": {
+    "id": 1,
+    "name": "Equoria",
+    "description": "Nueva descripción",
+    "logo": "equoria_logo.png",
+    "email": "contacto@equoria.org",
+    "phone_number": "6361234567",
+    "created_at": "2026-04-26T19:45:00.000000Z",
+    "updated_at": "2026-04-26T20:46:44.000000Z"
   },
   "status": "success"
 }</code></pre>
@@ -1216,9 +1649,58 @@ pre[class*="language-"] {margin-top:0!important;border-radius:0 0 8px 8px!import
 <h6 class="fw-bold mb-3">Response</h6>
 <div class="code-block-header">JSON Response</div>
 <pre><code class="language-json">{
-  "data": [
+   "data": [
     {
-      "id": 1
+      "id": 1,
+      "title": "Agresión física en vía pública",
+      "description": "Se reporta una agresión física hacia una mujer ocurrida cerca de una parada de autobús. Vecinos del lugar solicitaron apoyo.",
+      "type": "Física",
+      "status": "pendiente",
+      "lat": "28.64",
+      "lng": "-106.09",
+      "date": "2026-03-12",
+      "user_id": 1,
+      "created_at": "2026-04-26T19:45:01.000000Z",
+      "updated_at": "2026-04-26T19:45:01.000000Z"
+    },
+    {
+      "id": 2,
+      "title": "Acoso digital en redes sociales",
+      "description": "La víctima reporta recibir mensajes ofensivos y amenazas a través de redes sociales por parte de su expareja.",
+      "type": "Digital",
+      "status": "revision",
+      "lat": "31.69",
+      "lng": "-106.42",
+      "date": "2026-03-11",
+      "user_id": 2,
+      "created_at": "2026-04-26T19:45:01.000000Z",
+      "updated_at": "2026-04-26T19:45:01.000000Z"
+    },
+    {
+      "id": 3,
+      "title": "Violencia familiar",
+      "description": "Problemas en casa",
+      "type": "violencia",
+      "status": "pendiente",
+      "lat": "31.69",
+      "lng": "-106.42",
+      "date": "2026-03-01",
+      "user_id": 1,
+      "created_at": "2026-04-26T19:45:01.000000Z",
+      "updated_at": "2026-04-26T19:45:01.000000Z"
+    },
+    {
+      "id": 4,
+      "title": "Acoso laboral",
+      "description": "Problemas en el trabajo",
+      "type": "acoso",
+      "status": "revision",
+      "lat": "31.70",
+      "lng": "-106.42",
+      "date": "2026-03-02",
+      "user_id": 1,
+      "created_at": "2026-04-26T19:45:01.000000Z",
+      "updated_at": "2026-04-26T19:45:01.000000Z"
     }
   ],
   "status": "success"
@@ -1240,16 +1722,32 @@ pre[class*="language-"] {margin-top:0!important;border-radius:0 0 8px 8px!import
 <h6 class="fw-bold mb-3">Request Body</h6>
 <div class="code-block-header">JSON Payload</div>
 <pre><code class="language-json">{
-  "title": "Queja de prueba",
-  "description": "Descripción de la queja"
+ "title": "Agresión física en vía pública",
+  "description": "Se reporta una agresión física hacia una mujer ocurrida cerca de una parada de autobús. Vecinos del lugar solicitaron apoyo.",
+  "type": "Física",
+  "status": "pendiente",
+  "lat": 28.6353,
+  "lng": -106.0889,
+  "date": "2026-03-12",
+  "user_id": 1
 }</code></pre>
 </div>
 <div class="col-md-6">
 <h6 class="fw-bold mb-3">Response</h6>
 <div class="code-block-header">JSON Response</div>
 <pre><code class="language-json">{
-  "data": {
-    "id": 1
+   "data": {
+    "title": "Agresión física en vía pública",
+    "description": "Se reporta una agresión física hacia una mujer ocurrida cerca de una parada de autobús. Vecinos del lugar solicitaron apoyo.",
+    "type": "Física",
+    "status": "pendiente",
+    "lat": 28.6353,
+    "lng": -106.0889,
+    "date": "2026-03-12",
+    "user_id": 1,
+    "updated_at": "2026-04-26T20:50:16.000000Z",
+    "created_at": "2026-04-26T20:50:16.000000Z",
+    "id": 6
   },
   "status": "success"
 }</code></pre>
@@ -1271,8 +1769,18 @@ pre[class*="language-"] {margin-top:0!important;border-radius:0 0 8px 8px!import
 <h6 class="fw-bold mb-3">Response</h6>
 <div class="code-block-header">JSON Response</div>
 <pre><code class="language-json">{
-  "data": {
-    "id": 1
+ "data": {
+    "id": 1,
+    "title": "Agresión física en vía pública",
+    "description": "Se reporta una agresión física hacia una mujer ocurrida cerca de una parada de autobús. Vecinos del lugar solicitaron apoyo.",
+    "type": "Física",
+    "status": "pendiente",
+    "lat": "28.64",
+    "lng": "-106.09",
+    "date": "2026-03-12",
+    "user_id": 1,
+    "created_at": "2026-04-26T19:45:01.000000Z",
+    "updated_at": "2026-04-26T19:45:01.000000Z"
   },
   "status": "success"
 }</code></pre>
@@ -1303,7 +1811,17 @@ pre[class*="language-"] {margin-top:0!important;border-radius:0 0 8px 8px!import
 <div class="code-block-header">JSON Response</div>
 <pre><code class="language-json">{
   "data": {
-    "id": 1
+    "id": 1,
+    "title": "Agresión física en vía pública",
+    "description": "Queja revisada",
+    "type": "Física",
+    "status": "revision",
+    "lat": "28.64",
+    "lng": "-106.09",
+    "date": "2026-04-24",
+    "user_id": 1,
+    "created_at": "2026-04-26T19:45:01.000000Z",
+    "updated_at": "2026-04-26T20:54:23.000000Z"
   },
   "status": "success"
 }</code></pre>
@@ -1353,7 +1871,40 @@ pre[class*="language-"] {margin-top:0!important;border-radius:0 0 8px 8px!import
 <pre><code class="language-json">{
   "data": [
     {
-      "id": 1
+      "id": 1,
+      "name": "María López",
+      "email": "marialopez@gmail.com",
+      "message": "Quisiera recibir información sobre los talleres de apoyo para mujeres que ofrecen en su organización.",
+      "status": "new",
+      "created_at": "2026-04-26T19:45:00.000000Z",
+      "updated_at": "2026-04-26T19:45:00.000000Z"
+    },
+    {
+      "id": 2,
+      "name": "Ana Rodríguez",
+      "email": "anarodriguez@gmail.com",
+      "message": "Necesito orientación sobre cómo denunciar un caso de violencia psicológica. ¿Podrían ayudarme?",
+      "status": "answered",
+      "created_at": "2026-04-26T19:45:00.000000Z",
+      "updated_at": "2026-04-26T19:45:00.000000Z"
+    },
+    {
+      "id": 3,
+      "name": "Ana",
+      "email": "ana@gmail.com",
+      "message": "Necesito ayuda",
+      "status": "new",
+      "created_at": "2026-04-26T19:45:00.000000Z",
+      "updated_at": "2026-04-26T19:45:00.000000Z"
+    },
+    {
+      "id": 4,
+      "name": "Luisa",
+      "email": "luisa@gmail.com",
+      "message": "Informacion legal",
+      "status": "answered",
+      "created_at": "2026-04-26T19:45:00.000000Z",
+      "updated_at": "2026-04-26T19:45:00.000000Z"
     }
   ],
   "status": "success"
@@ -1385,7 +1936,12 @@ pre[class*="language-"] {margin-top:0!important;border-radius:0 0 8px 8px!import
 <div class="code-block-header">JSON Response</div>
 <pre><code class="language-json">{
   "data": {
-    "id": 1
+    "name": "María",
+    "email": "maria@example.com",
+    "message": "Necesito información",
+    "updated_at": "2026-04-26T20:55:47.000000Z",
+    "created_at": "2026-04-26T20:55:47.000000Z",
+    "id": 5
   },
   "status": "success"
 }</code></pre>
@@ -1407,8 +1963,14 @@ pre[class*="language-"] {margin-top:0!important;border-radius:0 0 8px 8px!import
 <h6 class="fw-bold mb-3">Response</h6>
 <div class="code-block-header">JSON Response</div>
 <pre><code class="language-json">{
-  "data": {
-    "id": 1
+   "data": {
+    "id": 1,
+    "name": "María López",
+    "email": "marialopez@gmail.com",
+    "message": "Quisiera recibir información sobre los talleres de apoyo para mujeres que ofrecen en su organización.",
+    "status": "new",
+    "created_at": "2026-04-26T19:45:00.000000Z",
+    "updated_at": "2026-04-26T19:45:00.000000Z"
   },
   "status": "success"
 }</code></pre>
@@ -1437,8 +1999,14 @@ pre[class*="language-"] {margin-top:0!important;border-radius:0 0 8px 8px!import
 <h6 class="fw-bold mb-3">Response</h6>
 <div class="code-block-header">JSON Response</div>
 <pre><code class="language-json">{
-  "data": {
-    "id": 1
+   "data": {
+    "id": 1,
+    "name": "María López",
+    "email": "marialopez@gmail.com",
+    "message": "Mensaje respondido",
+    "status": "answered",
+    "created_at": "2026-04-26T19:45:00.000000Z",
+    "updated_at": "2026-04-26T20:57:16.000000Z"
   },
   "status": "success"
 }</code></pre>
@@ -1486,9 +2054,46 @@ pre[class*="language-"] {margin-top:0!important;border-radius:0 0 8px 8px!import
 <h6 class="fw-bold mb-3">Response</h6>
 <div class="code-block-header">JSON Response</div>
 <pre><code class="language-json">{
-  "data": [
+"data": [
     {
-      "id": 1
+      "id": 1,
+      "name": "Rosa",
+      "lastname": "Martínez",
+      "phone_number": "6365551234",
+      "relation": "Madre",
+      "user_id": 1,
+      "created_at": "2026-04-26T19:45:01.000000Z",
+      "updated_at": "2026-04-26T19:45:01.000000Z"
+    },
+    {
+      "id": 2,
+      "name": "Carlos",
+      "lastname": "Hernández",
+      "phone_number": "6365559876",
+      "relation": "Hermano",
+      "user_id": 2,
+      "created_at": "2026-04-26T19:45:01.000000Z",
+      "updated_at": "2026-04-26T19:45:01.000000Z"
+    },
+    {
+      "id": 3,
+      "name": "Maria",
+      "lastname": "Lopez",
+      "phone_number": "6563333333",
+      "relation": "Madre",
+      "user_id": 1,
+      "created_at": "2026-04-26T19:45:01.000000Z",
+      "updated_at": "2026-04-26T19:45:01.000000Z"
+    },
+    {
+      "id": 4,
+      "name": "Jose",
+      "lastname": "Perez",
+      "phone_number": "6564444444",
+      "relation": "Hermano",
+      "user_id": 1,
+      "created_at": "2026-04-26T19:45:01.000000Z",
+      "updated_at": "2026-04-26T19:45:01.000000Z"
     }
   ],
   "status": "success"
@@ -1510,16 +2115,26 @@ pre[class*="language-"] {margin-top:0!important;border-radius:0 0 8px 8px!import
 <h6 class="fw-bold mb-3">Request Body</h6>
 <div class="code-block-header">JSON Payload</div>
 <pre><code class="language-json">{
-  "name": "Carlos",
-  "phone": "6361234567"
+  "name": "Rosa",
+  "lastname": "Martínez",
+  "phone_number": "6365551234",
+  "relation": "Madre",
+  "user_id": 1
 }</code></pre>
 </div>
 <div class="col-md-6">
 <h6 class="fw-bold mb-3">Response</h6>
 <div class="code-block-header">JSON Response</div>
 <pre><code class="language-json">{
-  "data": {
-    "id": 1
+   "data": {
+    "name": "Rosa",
+    "lastname": "Martínez",
+    "phone_number": "6365551234",
+    "relation": "Madre",
+    "user_id": 1,
+    "updated_at": "2026-04-26T21:02:45.000000Z",
+    "created_at": "2026-04-26T21:02:45.000000Z",
+    "id": 5
   },
   "status": "success"
 }</code></pre>
@@ -1541,8 +2156,15 @@ pre[class*="language-"] {margin-top:0!important;border-radius:0 0 8px 8px!import
 <h6 class="fw-bold mb-3">Response</h6>
 <div class="code-block-header">JSON Response</div>
 <pre><code class="language-json">{
-  "data": {
-    "id": 1
+   "data": {
+    "id": 1,
+    "name": "Rosa",
+    "lastname": "Martínez",
+    "phone_number": "6365551234",
+    "relation": "Madre",
+    "user_id": 1,
+    "created_at": "2026-04-26T19:45:01.000000Z",
+    "updated_at": "2026-04-26T19:45:01.000000Z"
   },
   "status": "success"
 }</code></pre>
@@ -1565,7 +2187,7 @@ pre[class*="language-"] {margin-top:0!important;border-radius:0 0 8px 8px!import
 <pre><code class="language-json">{
   "name": "Carlos Ruiz",
   "phone_number": "6361234567",
-  "relationship": "Hermano"
+  "relation": "Hermano"
 }</code></pre>
 </div>
 <div class="col-md-6">
@@ -1573,7 +2195,14 @@ pre[class*="language-"] {margin-top:0!important;border-radius:0 0 8px 8px!import
 <div class="code-block-header">JSON Response</div>
 <pre><code class="language-json">{
   "data": {
-    "id": 1
+    "id": 1,
+    "name": "Carlos Ruiz",
+    "lastname": "Martínez",
+    "phone_number": "6361234567",
+    "relation": "Hermano",
+    "user_id": 1,
+    "created_at": "2026-04-26T19:45:01.000000Z",
+    "updated_at": "2026-04-26T21:44:30.000000Z"
   },
   "status": "success"
 }</code></pre>
@@ -1623,7 +2252,32 @@ pre[class*="language-"] {margin-top:0!important;border-radius:0 0 8px 8px!import
 <pre><code class="language-json">{
   "data": [
     {
-      "id": 1
+      "id": 1,
+      "file_type": "img",
+      "complaint_id": 1,
+      "created_at": "2026-04-26T19:45:01.000000Z",
+      "updated_at": "2026-04-26T19:45:01.000000Z"
+    },
+    {
+      "id": 2,
+      "file_type": "document",
+      "complaint_id": 2,
+      "created_at": "2026-04-26T19:45:01.000000Z",
+      "updated_at": "2026-04-26T19:45:01.000000Z"
+    },
+    {
+      "id": 3,
+      "file_type": "img",
+      "complaint_id": 1,
+      "created_at": "2026-04-26T19:45:01.000000Z",
+      "updated_at": "2026-04-26T19:45:01.000000Z"
+    },
+    {
+      "id": 4,
+      "file_type": "record",
+      "complaint_id": 2,
+      "created_at": "2026-04-26T19:45:01.000000Z",
+      "updated_at": "2026-04-26T19:45:01.000000Z"
     }
   ],
   "status": "success"
@@ -1645,16 +2299,20 @@ pre[class*="language-"] {margin-top:0!important;border-radius:0 0 8px 8px!import
 <h6 class="fw-bold mb-3">Request Body</h6>
 <div class="code-block-header">JSON Payload</div>
 <pre><code class="language-json">{
-  "title": "Evidencia 1",
-  "description": "Descripción de evidencia"
+  "file_type": "img",
+  "complaint_id": 1
 }</code></pre>
 </div>
 <div class="col-md-6">
 <h6 class="fw-bold mb-3">Response</h6>
 <div class="code-block-header">JSON Response</div>
 <pre><code class="language-json">{
-  "data": {
-    "id": 1
+"data": {
+    "file_type": "img",
+    "complaint_id": 1,
+    "updated_at": "2026-04-26T21:48:27.000000Z",
+    "created_at": "2026-04-26T21:48:27.000000Z",
+    "id": 5
   },
   "status": "success"
 }</code></pre>
@@ -1677,7 +2335,11 @@ pre[class*="language-"] {margin-top:0!important;border-radius:0 0 8px 8px!import
 <div class="code-block-header">JSON Response</div>
 <pre><code class="language-json">{
   "data": {
-    "id": 1
+    "id": 1,
+    "file_type": "img",
+    "complaint_id": 1,
+    "created_at": "2026-04-26T19:45:01.000000Z",
+    "updated_at": "2026-04-26T19:45:01.000000Z"
   },
   "status": "success"
 }</code></pre>
@@ -1685,36 +2347,7 @@ pre[class*="language-"] {margin-top:0!important;border-radius:0 0 8px 8px!import
 </div>
 </div>
 </div>
-<div class="api-card">
-<div class="api-header">
-<span class="badge-method badge-put">PUT</span>
-<span class="api-endpoint">/api/evidence/{id}</span>
-</div>
-<div class="api-body">
-<p>Actualiza un registro existente de Evidencias.</p>
-<p class="small text-muted"><i class="bi bi-lock-fill"></i> Requiere: <code>Bearer Token</code></p>
-<div class="row mt-4">
-<div class="col-md-6">
-<h6 class="fw-bold mb-3">Request Body</h6>
-<div class="code-block-header">JSON Payload</div>
-<pre><code class="language-json">{
-  "title": "Evidencia actualizada",
-  "description": "Descripción actualizada"
-}</code></pre>
-</div>
-<div class="col-md-6">
-<h6 class="fw-bold mb-3">Response</h6>
-<div class="code-block-header">JSON Response</div>
-<pre><code class="language-json">{
-  "data": {
-    "id": 1
-  },
-  "status": "success"
-}</code></pre>
-</div>
-</div>
-</div>
-</div>
+
 <div class="api-card">
 <div class="api-header">
 <span class="badge-method badge-delete">DELETE</span>
@@ -1757,7 +2390,36 @@ pre[class*="language-"] {margin-top:0!important;border-radius:0 0 8px 8px!import
 <pre><code class="language-json">{
   "data": [
     {
-      "id": 1
+      "id": 1,
+      "rute": "default4.jpg",
+      "description": "Fotografía tomada en el lugar de los hechos donde se observa el daño causado.",
+      "evidences_id": 1,
+      "created_at": "2026-04-26T19:45:01.000000Z",
+      "updated_at": "2026-04-26T19:45:01.000000Z"
+    },
+    {
+      "id": 2,
+      "rute": "default5.png",
+      "description": "Captura de pantalla de mensajes enviados por el agresor a través de redes sociales.",
+      "evidences_id": 2,
+      "created_at": "2026-04-26T19:45:01.000000Z",
+      "updated_at": "2026-04-26T19:45:01.000000Z"
+    },
+    {
+      "id": 3,
+      "rute": "img1.jpg",
+      "description": "Foto evidencia",
+      "evidences_id": 1,
+      "created_at": "2026-04-26T19:45:01.000000Z",
+      "updated_at": "2026-04-26T19:45:01.000000Z"
+    },
+    {
+      "id": 4,
+      "rute": "img2.jpg",
+      "description": "Foto evidencia",
+      "evidences_id": 2,
+      "created_at": "2026-04-26T19:45:01.000000Z",
+      "updated_at": "2026-04-26T19:45:01.000000Z"
     }
   ],
   "status": "success"
@@ -1779,8 +2441,9 @@ pre[class*="language-"] {margin-top:0!important;border-radius:0 0 8px 8px!import
 <h6 class="fw-bold mb-3">Request Body</h6>
 <div class="code-block-header">JSON Payload</div>
 <pre><code class="language-json">{
-  "title": "Archivo evidencia",
-  "file_path": "evidencias/archivo.pdf"
+  "rute": "default4.jpg",
+  "description": "Fotografía tomada en el lugar de los hechos donde se observa el daño causado.",
+  "evidences_id": 1
 }</code></pre>
 </div>
 <div class="col-md-6">
@@ -1788,7 +2451,12 @@ pre[class*="language-"] {margin-top:0!important;border-radius:0 0 8px 8px!import
 <div class="code-block-header">JSON Response</div>
 <pre><code class="language-json">{
   "data": {
-    "id": 1
+    "rute": "default4.jpg",
+    "description": "Fotografía tomada en el lugar de los hechos donde se observa el daño causado.",
+    "evidences_id": 1,
+    "updated_at": "2026-04-26T21:53:17.000000Z",
+    "created_at": "2026-04-26T21:53:17.000000Z",
+    "id": 5
   },
   "status": "success"
 }</code></pre>
@@ -1811,7 +2479,12 @@ pre[class*="language-"] {margin-top:0!important;border-radius:0 0 8px 8px!import
 <div class="code-block-header">JSON Response</div>
 <pre><code class="language-json">{
   "data": {
-    "id": 1
+    "id": 1,
+    "rute": "default4.jpg",
+    "description": "Fotografía tomada en el lugar de los hechos donde se observa el daño causado.",
+    "evidences_id": 1,
+    "created_at": "2026-04-26T19:45:01.000000Z",
+    "updated_at": "2026-04-26T19:45:01.000000Z"
   },
   "status": "success"
 }</code></pre>
@@ -1841,7 +2514,12 @@ pre[class*="language-"] {margin-top:0!important;border-radius:0 0 8px 8px!import
 <div class="code-block-header">JSON Response</div>
 <pre><code class="language-json">{
   "data": {
-    "id": 1
+    "id": 1,
+    "rute": "evidencias/archivo_actualizado.pdf",
+    "description": "Archivo actualizado",
+    "evidences_id": 1,
+    "created_at": "2026-04-26T19:45:01.000000Z",
+    "updated_at": "2026-04-26T21:54:35.000000Z"
   },
   "status": "success"
 }</code></pre>
@@ -1913,15 +2591,21 @@ pre[class*="language-"] {margin-top:0!important;border-radius:0 0 8px 8px!import
 <h6 class="fw-bold mb-3">Request Body</h6>
 <div class="code-block-header">JSON Payload</div>
 <pre><code class="language-json">{
-  "name": "Solicitud 1",
-  "result": "pendiente"
+  "user_id": 1,
+  "document_path": "archivos/ine_frente_01.jpg",
+  "document_type": "INE"
 }</code></pre>
 </div>
 <div class="col-md-6">
 <h6 class="fw-bold mb-3">Response</h6>
 <div class="code-block-header">JSON Response</div>
 <pre><code class="language-json">{
-  "data": {
+   "data": {
+    "user_id": 1,
+    "document_path": "archivos/ine_frente_01.jpg",
+    "document_type": "INE",
+    "updated_at": "2026-04-26T22:02:59.000000Z",
+    "created_at": "2026-04-26T22:02:59.000000Z",
     "id": 1
   },
   "status": "success"
@@ -1944,8 +2628,15 @@ pre[class*="language-"] {margin-top:0!important;border-radius:0 0 8px 8px!import
 <h6 class="fw-bold mb-3">Response</h6>
 <div class="code-block-header">JSON Response</div>
 <pre><code class="language-json">{
-  "data": {
-    "id": 1
+    "data": {
+    "id": 1,
+    "user_id": 1,
+    "document_path": "archivos/ine_frente_01.jpg",
+    "document_type": "INE",
+    "state": "pendiente",
+    "notes": null,
+    "created_at": "2026-04-26T22:02:59.000000Z",
+    "updated_at": "2026-04-26T22:02:59.000000Z"
   },
   "status": "success"
 }</code></pre>
@@ -1974,8 +2665,15 @@ pre[class*="language-"] {margin-top:0!important;border-radius:0 0 8px 8px!import
 <h6 class="fw-bold mb-3">Response</h6>
 <div class="code-block-header">JSON Response</div>
 <pre><code class="language-json">{
-  "data": {
-    "id": 1
+ "data": {
+    "id": 1,
+    "user_id": 1,
+    "document_path": "archivos/ine_frente_01.jpg",
+    "document_type": "INE",
+    "state": "aprobada",
+    "notes": "Verificación aprobada",
+    "created_at": "2026-04-26T22:02:59.000000Z",
+    "updated_at": "2026-04-26T22:04:19.000000Z"
   },
   "status": "success"
 }</code></pre>
@@ -2025,7 +2723,40 @@ pre[class*="language-"] {margin-top:0!important;border-radius:0 0 8px 8px!import
 <pre><code class="language-json">{
   "data": [
     {
-      "id": 1
+      "id": 1,
+      "title": "Ley General de Acceso de las Mujeres a una Vida Libre de Violencia",
+      "description": "Ley que establece los mecanismos para prevenir, sancionar y erradicar la violencia contra las mujeres en México.",
+      "state": "Federal",
+      "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LGAMVLV.pdf",
+      "created_at": "2026-04-26T19:45:00.000000Z",
+      "updated_at": "2026-04-26T19:45:00.000000Z"
+    },
+    {
+      "id": 2,
+      "title": "Ley Estatal del Derecho de las Mujeres a una Vida Libre de Violencia",
+      "description": "Normativa del estado de Chihuahua que protege a las mujeres contra cualquier tipo de violencia y promueve la igualdad.",
+      "state": "Chihuahua",
+      "url": "https://www.congresochihuahua2.gob.mx/biblioteca/leyes/archivosLeyes/1050.pdf",
+      "created_at": "2026-04-26T19:45:00.000000Z",
+      "updated_at": "2026-04-26T19:45:00.000000Z"
+    },
+    {
+      "id": 3,
+      "title": "NOM-046-SSA2-2005: Violencia Familiar, Sexual y Género",
+      "description": "Norma Oficial Mexicana que establece los criterios para la detección, prevención, atención médica y la orientación a las personas que se encuentren involucradas en situaciones de violencia familiar o sexual.",
+      "state": "Federal",
+      "url": "https://www.dof.gob.mx/normasOficiales/3623/salud16_C/salud16_C.htm",
+      "created_at": "2026-04-26T19:45:00.000000Z",
+      "updated_at": "2026-04-26T19:45:00.000000Z"
+    },
+    {
+      "id": 4,
+      "title": "Código Penal Federal — Art. 325 (Feminicidio)",
+      "description": "Artículo del Código Penal Federal que tipifica el feminicidio como delito y establece las sanciones correspondientes.",
+      "state": "Federal",
+      "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/CPF.pdf",
+      "created_at": "2026-04-26T19:45:00.000000Z",
+      "updated_at": "2026-04-26T19:45:00.000000Z"
     }
   ],
   "status": "success"
@@ -2047,16 +2778,24 @@ pre[class*="language-"] {margin-top:0!important;border-radius:0 0 8px 8px!import
 <h6 class="fw-bold mb-3">Request Body</h6>
 <div class="code-block-header">JSON Payload</div>
 <pre><code class="language-json">{
-  "title": "Ley de ejemplo",
-  "description": "Descripción de la ley"
+  "title": "Ley Olimpia",
+  "description": "Conjunto de reformas legislativas encaminadas a reconocer la violencia digital y sancionar los delitos que violen la intimidad sexual de las personas a través de medios digitales.",
+  "state": "Nacional",
+  "url": "https://www.gob.mx/sep/articulos/ley-olimpia"
 }</code></pre>
 </div>
 <div class="col-md-6">
 <h6 class="fw-bold mb-3">Response</h6>
 <div class="code-block-header">JSON Response</div>
 <pre><code class="language-json">{
-  "data": {
-    "id": 1
+    "data": {
+    "title": "Ley Olimpia",
+    "description": "Conjunto de reformas legislativas encaminadas a reconocer la violencia digital y sancionar los delitos que violen la intimidad sexual de las personas a través de medios digitales.",
+    "state": "Nacional",
+    "url": "https://www.gob.mx/sep/articulos/ley-olimpia",
+    "updated_at": "2026-04-26T22:07:38.000000Z",
+    "created_at": "2026-04-26T22:07:38.000000Z",
+    "id": 5
   },
   "status": "success"
 }</code></pre>
@@ -2078,11 +2817,17 @@ pre[class*="language-"] {margin-top:0!important;border-radius:0 0 8px 8px!import
 <h6 class="fw-bold mb-3">Response</h6>
 <div class="code-block-header">JSON Response</div>
 <pre><code class="language-json">{
-  "data": {
-    "id": 1
+ "data": {
+    "id": 1,
+    "title": "Ley General de Acceso de las Mujeres a una Vida Libre de Violencia",
+    "description": "Ley que establece los mecanismos para prevenir, sancionar y erradicar la violencia contra las mujeres en México.",
+    "state": "Federal",
+    "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LGAMVLV.pdf",
+    "created_at": "2026-04-26T19:45:00.000000Z",
+    "updated_at": "2026-04-26T19:45:00.000000Z"
   },
   "status": "success"
-}</code></pre>
+  }</code></pre>
 </div>
 </div>
 </div>
@@ -2109,7 +2854,13 @@ pre[class*="language-"] {margin-top:0!important;border-radius:0 0 8px 8px!import
 <div class="code-block-header">JSON Response</div>
 <pre><code class="language-json">{
   "data": {
-    "id": 1
+    "id": 1,
+    "title": "Ley General de Acceso de las Mujeres a una Vida Libre de Violencia",
+    "description": "Descripción actualizada",
+    "state": "Chihuahua",
+    "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LGAMVLV.pdf",
+    "created_at": "2026-04-26T19:45:00.000000Z",
+    "updated_at": "2026-04-26T22:12:21.000000Z"
   },
   "status": "success"
 }</code></pre>
@@ -2157,9 +2908,42 @@ pre[class*="language-"] {margin-top:0!important;border-radius:0 0 8px 8px!import
 <h6 class="fw-bold mb-3">Response</h6>
 <div class="code-block-header">JSON Response</div>
 <pre><code class="language-json">{
-  "data": [
+   "data": [
     {
-      "id": 1
+      "id": 1,
+      "title": "Chihuahua refuerza protocolo de atención a víctimas",
+      "content": "Autoridades estatales anunciaron nuevas medidas para mejorar la atención a mujeres víctimas de violencia, incluyendo mayor capacitación para personal de seguridad y apoyo psicológico gratuito.",
+      "img": "default6.jpg",
+      "user_id": 1,
+      "created_at": "2026-04-26T19:45:01.000000Z",
+      "updated_at": "2026-04-26T19:45:01.000000Z"
+    },
+    {
+      "id": 2,
+      "title": "Campaña #NoEstasSola impulsa apoyo a mujeres",
+      "content": "Organizaciones civiles lanzaron la campaña #NoEstasSola para fomentar la denuncia y brindar acompañamiento a mujeres que enfrentan situaciones de violencia en diferentes estados del país.",
+      "img": "default.jpg",
+      "user_id": 2,
+      "created_at": "2026-04-26T19:45:01.000000Z",
+      "updated_at": "2026-04-26T19:45:01.000000Z"
+    },
+    {
+      "id": 3,
+      "title": "Nueva campaña",
+      "content": "Apoyo a mujeres",
+      "img": "default.jpg",
+      "user_id": 1,
+      "created_at": "2026-04-26T19:45:01.000000Z",
+      "updated_at": "2026-04-26T19:45:01.000000Z"
+    },
+    {
+      "id": 4,
+      "title": "Nuevo refugio",
+      "content": "Refugio abierto",
+      "img": "default.jpg",
+      "user_id": 1,
+      "created_at": "2026-04-26T19:45:01.000000Z",
+      "updated_at": "2026-04-26T19:45:01.000000Z"
     }
   ],
   "status": "success"
@@ -2181,16 +2965,24 @@ pre[class*="language-"] {margin-top:0!important;border-radius:0 0 8px 8px!import
 <h6 class="fw-bold mb-3">Request Body</h6>
 <div class="code-block-header">JSON Payload</div>
 <pre><code class="language-json">{
-  "title": "Nueva noticia",
-  "content": "Contenido de la noticia"
+  "title": "Nueva ley de protección",
+  "content": "Se ha aprobado una nueva ley para la protección de datos.",
+  "img": "imagen.jpg",
+  "user_id": 1
 }</code></pre>
 </div>
 <div class="col-md-6">
 <h6 class="fw-bold mb-3">Response</h6>
 <div class="code-block-header">JSON Response</div>
 <pre><code class="language-json">{
-  "data": {
-    "id": 1
+    "data": {
+    "title": "Nueva ley de protección",
+    "content": "Se ha aprobado una nueva ley para la protección de datos.",
+    "img": "imagen.jpg",
+    "user_id": 1,
+    "updated_at": "2026-04-26T22:16:05.000000Z",
+    "created_at": "2026-04-26T22:16:05.000000Z",
+    "id": 5
   },
   "status": "success"
 }</code></pre>
@@ -2212,8 +3004,14 @@ pre[class*="language-"] {margin-top:0!important;border-radius:0 0 8px 8px!import
 <h6 class="fw-bold mb-3">Response</h6>
 <div class="code-block-header">JSON Response</div>
 <pre><code class="language-json">{
-  "data": {
-    "id": 1
+    "data": {
+    "id": 4,
+    "title": "Nuevo refugio",
+    "content": "Refugio abierto",
+    "img": "default.jpg",
+    "user_id": 1,
+    "created_at": "2026-04-26T19:45:01.000000Z",
+    "updated_at": "2026-04-26T19:45:01.000000Z"
   },
   "status": "success"
 }</code></pre>
@@ -2241,8 +3039,14 @@ pre[class*="language-"] {margin-top:0!important;border-radius:0 0 8px 8px!import
 <h6 class="fw-bold mb-3">Response</h6>
 <div class="code-block-header">JSON Response</div>
 <pre><code class="language-json">{
-  "data": {
-    "id": 1
+ "data": {
+    "id": 4,
+    "title": "Nuevo refugio",
+    "content": "Refugio abierto",
+    "img": "noticia.jpg",
+    "user_id": 1,
+    "created_at": "2026-04-26T19:45:01.000000Z",
+    "updated_at": "2026-04-26T22:16:55.000000Z"
   },
   "status": "success"
 }</code></pre>
@@ -2292,7 +3096,48 @@ pre[class*="language-"] {margin-top:0!important;border-radius:0 0 8px 8px!import
 <pre><code class="language-json">{
   "data": [
     {
-      "id": 1
+      "id": 1,
+      "cost": "1800.00",
+      "payment_method": "Mastercard",
+      "payment_reference": "VER-415646",
+      "status": "completed",
+      "payment_date": "2026-03-01",
+      "verification_id": 1,
+      "created_at": "2026-04-26T19:45:01.000000Z",
+      "updated_at": "2026-04-26T19:45:01.000000Z"
+    },
+    {
+      "id": 2,
+      "cost": "2500.00",
+      "payment_method": "Transferencia",
+      "payment_reference": "VER-126749",
+      "status": "in_process",
+      "payment_date": "2026-03-10",
+      "verification_id": 2,
+      "created_at": "2026-04-26T19:45:01.000000Z",
+      "updated_at": "2026-04-26T19:45:01.000000Z"
+    },
+    {
+      "id": 3,
+      "cost": "100.00",
+      "payment_method": "card",
+      "payment_reference": "ABC123",
+      "status": "completed",
+      "payment_date": "2026-03-07",
+      "verification_id": 1,
+      "created_at": "2026-04-26T19:45:01.000000Z",
+      "updated_at": "2026-04-26T19:45:01.000000Z"
+    },
+    {
+      "id": 4,
+      "cost": "200.00",
+      "payment_method": "cash",
+      "payment_reference": "XYZ456",
+      "status": "in_process",
+      "payment_date": "2026-03-08",
+      "verification_id": 2,
+      "created_at": "2026-04-26T19:45:01.000000Z",
+      "updated_at": "2026-04-26T19:45:01.000000Z"
     }
   ],
   "status": "success"
@@ -2314,16 +3159,28 @@ pre[class*="language-"] {margin-top:0!important;border-radius:0 0 8px 8px!import
 <h6 class="fw-bold mb-3">Request Body</h6>
 <div class="code-block-header">JSON Payload</div>
 <pre><code class="language-json">{
-  "amount": 250.00,
-  "method": "tarjeta"
+  "cost": 199.99,
+  "payment_method": "tarjeta",
+  "payment_reference": "ABC123456",
+  "status": "in_process",
+  "payment_date": "2026-04-26",
+  "verification_id": 1
 }</code></pre>
 </div>
 <div class="col-md-6">
 <h6 class="fw-bold mb-3">Response</h6>
 <div class="code-block-header">JSON Response</div>
 <pre><code class="language-json">{
-  "data": {
-    "id": 1
+"data": {
+    "cost": 199.99,
+    "payment_method": "tarjeta",
+    "payment_reference": "ABC123456",
+    "status": "in_process",
+    "payment_date": "2026-04-26",
+    "verification_id": 1,
+    "updated_at": "2026-04-26T22:20:21.000000Z",
+    "created_at": "2026-04-26T22:20:21.000000Z",
+    "id": 5
   },
   "status": "success"
 }</code></pre>
@@ -2346,7 +3203,15 @@ pre[class*="language-"] {margin-top:0!important;border-radius:0 0 8px 8px!import
 <div class="code-block-header">JSON Response</div>
 <pre><code class="language-json">{
   "data": {
-    "id": 1
+    "id": 3,
+    "cost": "100.00",
+    "payment_method": "card",
+    "payment_reference": "ABC123",
+    "status": "completed",
+    "payment_date": "2026-03-07",
+    "verification_id": 1,
+    "created_at": "2026-04-26T19:45:01.000000Z",
+    "updated_at": "2026-04-26T19:45:01.000000Z"
   },
   "status": "success"
 }</code></pre>
@@ -2368,7 +3233,7 @@ pre[class*="language-"] {margin-top:0!important;border-radius:0 0 8px 8px!import
 <div class="code-block-header">JSON Payload</div>
 <pre><code class="language-json">{
   "cost": 250.00,
-  "payment_method": "tarjeta",
+  "payment_method": "card",
   "status": "completed"
 }</code></pre>
 </div>
@@ -2377,7 +3242,15 @@ pre[class*="language-"] {margin-top:0!important;border-radius:0 0 8px 8px!import
 <div class="code-block-header">JSON Response</div>
 <pre><code class="language-json">{
   "data": {
-    "id": 1
+    "id": 3,
+    "cost": 250,
+    "payment_method": "card",
+    "payment_reference": "ABC123",
+    "status": "completed",
+    "payment_date": "2026-03-07",
+    "verification_id": 1,
+    "created_at": "2026-04-26T19:45:01.000000Z",
+    "updated_at": "2026-04-26T22:21:55.000000Z"
   },
   "status": "success"
 }</code></pre>
@@ -2425,9 +3298,38 @@ pre[class*="language-"] {margin-top:0!important;border-radius:0 0 8px 8px!import
 <h6 class="fw-bold mb-3">Response</h6>
 <div class="code-block-header">JSON Response</div>
 <pre><code class="language-json">{
-  "data": [
+"data": [
     {
-      "id": 1
+      "id": 1,
+      "action": "Creación de denuncia",
+      "description": "La usuaria registró una nueva denuncia por violencia psicológica en la plataforma.",
+      "user_id": 1,
+      "created_at": "2026-04-26T19:45:01.000000Z",
+      "updated_at": "2026-04-26T19:45:01.000000Z"
+    },
+    {
+      "id": 2,
+      "action": "Actualización de perfil",
+      "description": "La usuaria actualizó su información personal y agregó un contacto de emergencia.",
+      "user_id": 2,
+      "created_at": "2026-04-26T19:45:01.000000Z",
+      "updated_at": "2026-04-26T19:45:01.000000Z"
+    },
+    {
+      "id": 3,
+      "action": "login",
+      "description": "Usuario entro",
+      "user_id": 1,
+      "created_at": "2026-04-26T19:45:01.000000Z",
+      "updated_at": "2026-04-26T19:45:01.000000Z"
+    },
+    {
+      "id": 4,
+      "action": "create",
+      "description": "Creo denuncia",
+      "user_id": 1,
+      "created_at": "2026-04-26T19:45:01.000000Z",
+      "updated_at": "2026-04-26T19:45:01.000000Z"
     }
   ],
   "status": "success"
@@ -2449,16 +3351,22 @@ pre[class*="language-"] {margin-top:0!important;border-radius:0 0 8px 8px!import
 <h6 class="fw-bold mb-3">Request Body</h6>
 <div class="code-block-header">JSON Payload</div>
 <pre><code class="language-json">{
-  "title": "Registro inicial",
-  "description": "Descripción del registro"
+ "action": "Creación de usuario",
+  "description": "Se registró un nuevo usuario en el sistema",
+  "user_id": 1
 }</code></pre>
 </div>
 <div class="col-md-6">
 <h6 class="fw-bold mb-3">Response</h6>
 <div class="code-block-header">JSON Response</div>
 <pre><code class="language-json">{
-  "data": {
-    "id": 1
+   "data": {
+    "action": "Creación de usuario",
+    "description": "Se registró un nuevo usuario en el sistema",
+    "user_id": 1,
+    "updated_at": "2026-04-26T22:24:38.000000Z",
+    "created_at": "2026-04-26T22:24:38.000000Z",
+    "id": 5
   },
   "status": "success"
 }</code></pre>
@@ -2481,7 +3389,12 @@ pre[class*="language-"] {margin-top:0!important;border-radius:0 0 8px 8px!import
 <div class="code-block-header">JSON Response</div>
 <pre><code class="language-json">{
   "data": {
-    "id": 1
+    "id": 2,
+    "action": "Actualización de perfil",
+    "description": "La usuaria actualizó su información personal y agregó un contacto de emergencia.",
+    "user_id": 2,
+    "created_at": "2026-04-26T19:45:01.000000Z",
+    "updated_at": "2026-04-26T19:45:01.000000Z"
   },
   "status": "success"
 }</code></pre>
@@ -2510,8 +3423,13 @@ pre[class*="language-"] {margin-top:0!important;border-radius:0 0 8px 8px!import
 <h6 class="fw-bold mb-3">Response</h6>
 <div class="code-block-header">JSON Response</div>
 <pre><code class="language-json">{
-  "data": {
-    "id": 1
+   "data": {
+    "id": 2,
+    "action": "Actualización",
+    "description": "Descripción actualizada del registro",
+    "user_id": 2,
+    "created_at": "2026-04-26T19:45:01.000000Z",
+    "updated_at": "2026-04-26T22:25:30.000000Z"
   },
   "status": "success"
 }</code></pre>
@@ -2559,9 +3477,46 @@ pre[class*="language-"] {margin-top:0!important;border-radius:0 0 8px 8px!import
 <h6 class="fw-bold mb-3">Response</h6>
 <div class="code-block-header">JSON Response</div>
 <pre><code class="language-json">{
-  "data": [
+   "data": [
     {
-      "id": 1
+      "id": 1,
+      "status": "in_process",
+      "coments": "El caso se está revisando, se contactará al usuario pronto.",
+      "complaint_id": 1,
+      "testimonial_id": 1,
+      "advisor_id": 1,
+      "created_at": "2026-04-26T19:45:01.000000Z",
+      "updated_at": "2026-04-26T19:45:01.000000Z"
+    },
+    {
+      "id": 2,
+      "status": "open",
+      "coments": "Se ha abierto el caso y se asignó un asesor para seguimiento.",
+      "complaint_id": 2,
+      "testimonial_id": 2,
+      "advisor_id": 2,
+      "created_at": "2026-04-26T19:45:01.000000Z",
+      "updated_at": "2026-04-26T19:45:01.000000Z"
+    },
+    {
+      "id": 3,
+      "status": "open",
+      "coments": "En proceso",
+      "complaint_id": 1,
+      "testimonial_id": 1,
+      "advisor_id": 1,
+      "created_at": "2026-04-26T19:45:01.000000Z",
+      "updated_at": "2026-04-26T19:45:01.000000Z"
+    },
+    {
+      "id": 4,
+      "status": "in_process",
+      "coments": "Revisando",
+      "complaint_id": 2,
+      "testimonial_id": 2,
+      "advisor_id": 1,
+      "created_at": "2026-04-26T19:45:01.000000Z",
+      "updated_at": "2026-04-26T19:45:01.000000Z"
     }
   ],
   "status": "success"
@@ -2583,17 +3538,26 @@ pre[class*="language-"] {margin-top:0!important;border-radius:0 0 8px 8px!import
 <h6 class="fw-bold mb-3">Request Body</h6>
 <div class="code-block-header">JSON Payload</div>
 <pre><code class="language-json">{
-  "case_id": 1,
   "status": "in_process",
-  "notes": "Caso en revisión"
+  "coments": "El caso sigue en revisión",
+  "complaint_id": 1,
+  "testimonial_id": 2,
+  "advisor_id": 3
 }</code></pre>
 </div>
 <div class="col-md-6">
 <h6 class="fw-bold mb-3">Response</h6>
 <div class="code-block-header">JSON Response</div>
 <pre><code class="language-json">{
-  "data": {
-    "id": 1
+   "data": {
+    "status": "in_process",
+    "coments": "El caso sigue en revisión",
+    "complaint_id": 1,
+    "testimonial_id": 2,
+    "advisor_id": 3,
+    "updated_at": "2026-04-26T22:34:41.000000Z",
+    "created_at": "2026-04-26T22:34:41.000000Z",
+    "id": 5
   },
   "status": "success"
 }</code></pre>
@@ -2615,10 +3579,18 @@ pre[class*="language-"] {margin-top:0!important;border-radius:0 0 8px 8px!import
 <h6 class="fw-bold mb-3">Response</h6>
 <div class="code-block-header">JSON Response</div>
 <pre><code class="language-json">{
-  "data": {
-    "id": 1
+    "data": {
+    "id": 2,
+    "status": "open",
+    "coments": "Se ha abierto el caso y se asignó un asesor para seguimiento.",
+    "complaint_id": 2,
+    "testimonial_id": 2,
+    "advisor_id": 2,
+    "created_at": "2026-04-26T19:45:01.000000Z",
+    "updated_at": "2026-04-26T19:45:01.000000Z"
   },
   "status": "success"
+
 }</code></pre>
 </div>
 </div>
@@ -2637,8 +3609,8 @@ pre[class*="language-"] {margin-top:0!important;border-radius:0 0 8px 8px!import
 <h6 class="fw-bold mb-3">Request Body</h6>
 <div class="code-block-header">JSON Payload</div>
 <pre><code class="language-json">{
-  "status": "resolved",
-  "comments": "Caso resuelto correctamente"
+  "status": "close",
+  "coments": "Caso resuelto correctamente"
 }</code></pre>
 </div>
 <div class="col-md-6">
@@ -2646,7 +3618,14 @@ pre[class*="language-"] {margin-top:0!important;border-radius:0 0 8px 8px!import
 <div class="code-block-header">JSON Response</div>
 <pre><code class="language-json">{
   "data": {
-    "id": 1
+    "id": 1,
+    "status": "close",
+    "coments": "Caso resuelto correctamente",
+    "complaint_id": 1,
+    "testimonial_id": 1,
+    "advisor_id": 1,
+    "created_at": "2026-04-26T19:45:01.000000Z",
+    "updated_at": "2026-04-26T22:39:00.000000Z"
   },
   "status": "success"
 }</code></pre>
@@ -2694,9 +3673,42 @@ pre[class*="language-"] {margin-top:0!important;border-radius:0 0 8px 8px!import
 <h6 class="fw-bold mb-3">Response</h6>
 <div class="code-block-header">JSON Response</div>
 <pre><code class="language-json">{
-  "data": [
+ "data": [
     {
-      "id": 1
+      "id": 1,
+      "content": "Me siento satisfecho con la atención brindada.",
+      "anonymous": 0,
+      "user_id": 1,
+      "complaint_id": 1,
+      "created_at": "2026-04-26T19:45:01.000000Z",
+      "updated_at": "2026-04-26T19:45:01.000000Z"
+    },
+    {
+      "id": 2,
+      "content": "El seguimiento fue rápido y profesional.",
+      "anonymous": 1,
+      "user_id": 2,
+      "complaint_id": 2,
+      "created_at": "2026-04-26T19:45:01.000000Z",
+      "updated_at": "2026-04-26T19:45:01.000000Z"
+    },
+    {
+      "id": 3,
+      "content": "Gracias por ayudarme",
+      "anonymous": 1,
+      "user_id": 1,
+      "complaint_id": 1,
+      "created_at": "2026-04-26T19:45:01.000000Z",
+      "updated_at": "2026-04-26T19:45:01.000000Z"
+    },
+    {
+      "id": 4,
+      "content": "Me apoyaron mucho",
+      "anonymous": 0,
+      "user_id": 1,
+      "complaint_id": 2,
+      "created_at": "2026-04-26T19:45:01.000000Z",
+      "updated_at": "2026-04-26T19:45:01.000000Z"
     }
   ],
   "status": "success"
@@ -2718,8 +3730,10 @@ pre[class*="language-"] {margin-top:0!important;border-radius:0 0 8px 8px!import
 <h6 class="fw-bold mb-3">Request Body</h6>
 <div class="code-block-header">JSON Payload</div>
 <pre><code class="language-json">{
-  "author": "Sofía",
-  "content": "Excelente servicio"
+  "content": "El servicio fue excelente y me ayudaron mucho.",
+  "anonymous": true,
+  "user_id": 1,
+  "complaint_id": 2
 }</code></pre>
 </div>
 <div class="col-md-6">
@@ -2727,7 +3741,13 @@ pre[class*="language-"] {margin-top:0!important;border-radius:0 0 8px 8px!import
 <div class="code-block-header">JSON Response</div>
 <pre><code class="language-json">{
   "data": {
-    "id": 1
+    "id": 1,
+    "content": "El servicio fue excelente y me ayudaron mucho.",
+    "anonymous": true,
+    "user_id": 1,
+    "complaint_id": 2,
+    "created_at": "2026-04-26T19:45:01.000000Z",
+    "updated_at": "2026-04-26T19:45:01.000000Z"
   },
   "status": "success"
 }</code></pre>
@@ -2749,8 +3769,14 @@ pre[class*="language-"] {margin-top:0!important;border-radius:0 0 8px 8px!import
 <h6 class="fw-bold mb-3">Response</h6>
 <div class="code-block-header">JSON Response</div>
 <pre><code class="language-json">{
-  "data": {
-    "id": 1
+ "data": {
+    "id": 1,
+    "content": "Me siento satisfecho con la atención brindada.",
+    "anonymous": 0,
+    "user_id": 1,
+    "complaint_id": 1,
+    "created_at": "2026-04-26T19:45:01.000000Z",
+    "updated_at": "2026-04-26T19:45:01.000000Z"
   },
   "status": "success"
 }</code></pre>
@@ -2779,7 +3805,13 @@ pre[class*="language-"] {margin-top:0!important;border-radius:0 0 8px 8px!import
 <div class="code-block-header">JSON Response</div>
 <pre><code class="language-json">{
   "data": {
-    "id": 1
+    "id": 1,
+    "content": "Testimonio actualizado",
+    "anonymous": 0,
+    "user_id": 1,
+    "complaint_id": 1,
+    "created_at": "2026-04-26T19:45:01.000000Z",
+    "updated_at": "2026-04-26T22:45:06.000000Z"
   },
   "status": "success"
 }</code></pre>
@@ -2827,9 +3859,38 @@ pre[class*="language-"] {margin-top:0!important;border-radius:0 0 8px 8px!import
 <h6 class="fw-bold mb-3">Response</h6>
 <div class="code-block-header">JSON Response</div>
 <pre><code class="language-json">{
-  "data": [
+ "data": [
     {
-      "id": 1
+      "id": 1,
+      "state": "pendiente",
+      "date_verification": "2026-03-13",
+      "new_id": 1,
+      "created_at": "2026-04-26T19:45:01.000000Z",
+      "updated_at": "2026-04-26T19:45:01.000000Z"
+    },
+    {
+      "id": 2,
+      "state": "aprobada",
+      "date_verification": "2026-03-12",
+      "new_id": 2,
+      "created_at": "2026-04-26T19:45:01.000000Z",
+      "updated_at": "2026-04-26T19:45:01.000000Z"
+    },
+    {
+      "id": 3,
+      "state": "pendiente",
+      "date_verification": "2026-03-05",
+      "new_id": 1,
+      "created_at": "2026-04-26T19:45:01.000000Z",
+      "updated_at": "2026-04-26T19:45:01.000000Z"
+    },
+    {
+      "id": 4,
+      "state": "aprobada",
+      "date_verification": "2026-03-06",
+      "new_id": 2,
+      "created_at": "2026-04-26T19:45:01.000000Z",
+      "updated_at": "2026-04-26T19:45:01.000000Z"
     }
   ],
   "status": "success"
@@ -2851,16 +3912,22 @@ pre[class*="language-"] {margin-top:0!important;border-radius:0 0 8px 8px!import
 <h6 class="fw-bold mb-3">Request Body</h6>
 <div class="code-block-header">JSON Payload</div>
 <pre><code class="language-json">{
-  "user_id": 1,
-  "status": "pendiente"
+  "state": "pendiente",
+  "date_verification": "2026-04-26",
+  "new_id": 1
 }</code></pre>
 </div>
 <div class="col-md-6">
 <h6 class="fw-bold mb-3">Response</h6>
 <div class="code-block-header">JSON Response</div>
 <pre><code class="language-json">{
-  "data": {
-    "id": 1
+   "data": {
+    "state": "pendiente",
+    "date_verification": "2026-04-26",
+    "new_id": 1,
+    "updated_at": "2026-04-26T22:47:39.000000Z",
+    "created_at": "2026-04-26T22:47:39.000000Z",
+    "id": 5
   },
   "status": "success"
 }</code></pre>
@@ -2883,7 +3950,12 @@ pre[class*="language-"] {margin-top:0!important;border-radius:0 0 8px 8px!import
 <div class="code-block-header">JSON Response</div>
 <pre><code class="language-json">{
   "data": {
-    "id": 1
+    "id": 1,
+    "state": "pendiente",
+    "date_verification": "2026-03-13",
+    "new_id": 1,
+    "created_at": "2026-04-26T19:45:01.000000Z",
+    "updated_at": "2026-04-26T19:45:01.000000Z"
   },
   "status": "success"
 }</code></pre>
@@ -2912,8 +3984,13 @@ pre[class*="language-"] {margin-top:0!important;border-radius:0 0 8px 8px!import
 <h6 class="fw-bold mb-3">Response</h6>
 <div class="code-block-header">JSON Response</div>
 <pre><code class="language-json">{
-  "data": {
-    "id": 1
+ "data": {
+    "id": 1,
+    "state": "aprobada",
+    "date_verification": "2026-04-24",
+    "new_id": 1,
+    "created_at": "2026-04-26T19:45:01.000000Z",
+    "updated_at": "2026-04-26T22:48:44.000000Z"
   },
   "status": "success"
 }</code></pre>

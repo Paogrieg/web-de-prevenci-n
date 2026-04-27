@@ -33,9 +33,17 @@ class NewController extends Controller
      */
     public function store(Request $request)
     {
+        $validated = $request->validate([
+        'title' => 'required|string|max:255',
+        'content' => 'required|string',
+        'img' => 'nullable|string',
+        'user_id' => 'required|exists:users,id',
+    ]);
         $news = new News();
         $news->title = $request->title;
         $news->content = $request->content;
+        $news->img = $request->img;
+        $news->user_id = $request->user_id;
         $news->save();
 
         return response()->json([

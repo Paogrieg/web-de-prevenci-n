@@ -33,9 +33,18 @@ class LawsController extends Controller
      */
     public function store(Request $request)
     {
-        $law = new Laws();
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'required|string',
+            'state' => 'required|string|max:100', 
+            'url' => 'required|url', 
+        ]);
+        $law = new Law();
         $law->title = $request->title;
         $law->description = $request->description;
+        $law->state = $request->state;
+        $law->url = $request->url;
+        
         $law->save();
 
         return response()->json([
@@ -49,7 +58,7 @@ class LawsController extends Controller
      */
     public function show(string $id)
     {
-        $law = Laws::find($id);
+        $law = Law::find($id);
         if($law == null){
             return response()->json([
                 "message"=>"Ley no encontrada",
@@ -77,9 +86,9 @@ class LawsController extends Controller
     {
         $valideted = $request->validate([
             'description' => 'required|min:3|max:200',
-            'state' => 'required|min:10|max:13',
+            'state' => 'required|max:100',
         ]);
-        $up = Laws::find($id);
+        $up = Law::find($id);
         $up->description = $request->description;
         $up->state = $request->state;
         $up->save();
@@ -94,7 +103,7 @@ class LawsController extends Controller
      */
     public function destroy(string $id)
     {
-            $law = Laws::find($id);
+            $law = Law::find($id);
         if($law == null){
             return response()->json([
                 "error"=>"Ley no encontrada",
