@@ -33,9 +33,15 @@ class EvidenceFileController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'rute' => 'required|string|max:255',
+            'description' => 'required|string',
+            'evidences_id' => 'required|numeric|exists:evidences,id',
+        ]);
         $evidenceFile = new EvidenceFile();
-        $evidenceFile->title = $request->title;
-        $evidenceFile->file_path = $request->file_path;
+        $evidenceFile->rute = $request->rute;
+        $evidenceFile->description = $request->description;
+        $evidenceFile->evidences_id = $request->evidences_id;
         $evidenceFile->save();
 
         return response()->json([

@@ -33,9 +33,14 @@ class EvidenceController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'file_type' => 'required|string|max:50',
+            'complaint_id' => 'required|numeric|exists:complaints,id',
+        ]);
         $evidence = new Evidence();
-        $evidence->title = $request->title;
-        $evidence->description = $request->description;
+        $evidence->file_type = $request->file_type;
+        $evidence->complaint_id = $request->complaint_id;
+        
         $evidence->save();
 
         return response()->json([

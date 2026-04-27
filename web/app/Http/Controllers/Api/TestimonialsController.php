@@ -33,9 +33,17 @@ class TestimonialsController extends Controller
      */
     public function store(Request $request)
     {
+         $validated = $request->validate([
+        'content' => 'required|string',
+        'anonymous' => 'required|boolean',
+        'user_id' => 'required|exists:users,id',
+        'complaint_id' => 'required|exists:complaints,id',
+    ]);
         $testimony = new Testimony();
-        $testimony->author = $request->author;
         $testimony->content = $request->content;
+        $testimony->anonymous = $request->anonymous;
+        $testimony->user_id = $request->user_id;
+        $testimony->complaint_id = $request->complaint_id;
         $testimony->save();
 
         return response()->json([

@@ -78,7 +78,7 @@ class ContactController extends Controller
     {
         $valideted = $request->validate([
             'message' => 'required|min:3|max:200',
-            'status' => 'required|enum:new,answered ',
+            'status' => 'required|in:new,answered',
         ]);
         $up = Contact::find($id);
         $up->message = $request->message;

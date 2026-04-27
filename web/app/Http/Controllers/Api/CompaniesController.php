@@ -33,11 +33,20 @@ class CompaniesController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'required|string',
+            'logo' => 'required|string', 
+            'email' => 'required|string|email|max:255|unique:companies',
+            'phone_number' => 'required|numeric',
+        ]);
         $company = new Company();
         $company->name = $request->name;
         $company->description = $request->description;
+        $company->logo = $request->logo;
+        $company->email = $request->email;
+        $company->phone_number = $request->phone_number;
         $company->save();
-
         return response()->json([
             "data"=>$company,
             "status"=>"success"
@@ -49,7 +58,17 @@ class CompaniesController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $company = Company::find($id);
+        if (!$company) {
+            return response()->json([
+                "message"=>"Company not found",
+                "status"=>"error"
+            ],404);
+        }
+        return response()->json([
+            "data"=>$company,
+            "status"=>"success"
+        ],200);
     }
 
     /**

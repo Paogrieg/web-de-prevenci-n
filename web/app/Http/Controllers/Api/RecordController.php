@@ -33,9 +33,15 @@ class RecordController extends Controller
      */
     public function store(Request $request)
     {
+         $validated = $request->validate([
+        'action' => 'required|string|max:255',
+        'description' => 'required|string',
+        'user_id' => 'required|exists:users,id',
+    ]);
         $record = new Record();
-        $record->title = $request->title;
+        $record->action = $request->action;
         $record->description = $request->description;
+        $record->user_id = $request->user_id;
         $record->save();
 
         return response()->json([

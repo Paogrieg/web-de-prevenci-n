@@ -33,11 +33,26 @@ class ComplaintController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'required|string',
+            'type' => 'required|string|max:100',
+            'status' => 'required|in:pendiente,revision,resuelto',
+            'lat' => 'required|numeric', 
+            'lng' => 'required|numeric',
+            'date' => 'required|date',
+            'user_id' => 'required|numeric|exists:users,id',
+        ]);
         $complaint = new Complaint();
         $complaint->title = $request->title;
         $complaint->description = $request->description;
+        $complaint->type = $request->type;
+        $complaint->status = $request->status;
+        $complaint->lat = $request->lat;
+        $complaint->lng = $request->lng;
+        $complaint->date = $request->date;
+        $complaint->user_id = $request->user_id;
         $complaint->save();
-
         return response()->json([
             "data"=>$complaint,
             "status"=>"success"
@@ -57,7 +72,7 @@ class ComplaintController extends Controller
             ],404);
         }
         return response()->json([
-            "data"=>$adviser,
+            "data"=>$complaint,
             "status"=>"success"
         ],200);
     }
@@ -77,7 +92,7 @@ class ComplaintController extends Controller
     {
           $valideted = $request->validate([
             'description' => 'required|min:3|max:300',
-            'status' => 'required|enum:pendiente,revision,resuelto',
+            'status' => 'required|in:pendiente,revision,resuelto',
             'date' => 'required|date',
         ]);
         $up = Complaint::find($id);

@@ -33,13 +33,22 @@ class EmergencyContactController extends Controller
      */
     public function store(Request $request)
     {
-        $emergencyContact = new EmergencyContact();
-        $emergencyContact->name = $request->name;
-        $emergencyContact->phone = $request->phone;
-        $emergencyContact->save();
-
+        $request->validate([
+            'name' => 'required|string|max:100',
+            'lastname' => 'required|string|max:100',
+            'phone_number' => 'required|numeric',
+            'relation' => 'required|string|max:50',
+            'user_id' => 'required|numeric|exists:users,id',
+        ]);
+        $contact = new EmergencyContact();
+        $contact->name = $request->name;
+        $contact->lastname = $request->lastname;
+        $contact->phone_number = $request->phone_number;
+        $contact->relation = $request->relation;
+        $contact->user_id = $request->user_id;
+        $contact->save();
         return response()->json([
-            "data"=>$emergencyContact,
+            "data"=>$contact,
             "status"=>"success"
         ],200);
     }
@@ -78,12 +87,12 @@ class EmergencyContactController extends Controller
         $valideted = $request->validate([
             'name' => 'required|min:3|max:100',
             'phone_number' => 'required|min:10|max:13',
-            'relationship' => 'required|min:10|max:30',
+            'relation' => 'required|max:50',
         ]);
         $up = EmergencyContact::find($id);
         $up->name = $request->name;
         $up->phone_number = $request->phone_number;
-        $up->relationship = $request->relationship;
+        $up->relation = $request->relation;
         $up->save();
         return response()->json([
             "data"=>$up,

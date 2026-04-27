@@ -33,13 +33,20 @@ class GenderVerificationController extends Controller
      */
     public function store(Request $request)
     {
-        $genderVerification = new GenderVerification();
-        $genderVerification->name = $request->name;
-        $genderVerification->result = $request->result;
-        $genderVerification->save();
-
+       $request->validate([
+            'user_id' => 'required|numeric|exists:users,id',
+            'document_path' => 'required|string|max:255',
+            'document_type' => 'required|string|max:255',
+            'state' => 'nullable|in:pendiente,aprobada,rechazada', 
+            'notes' => 'nullable|string',
+        ]);
+        $verification = new GenderVerification();
+        $verification->user_id = $request->user_id;
+        $verification->document_path = $request->document_path;
+        $verification->document_type = $request->document_type;
+        $verification->save();
         return response()->json([
-            "data"=>$genderVerification,
+            "data"=>$verification,
             "status"=>"success"
         ],200);
 
@@ -77,7 +84,7 @@ class GenderVerificationController extends Controller
     public function update(Request $request, string $id)
     {
         $valideted = $request->validate([
-            'state' => 'required|enum:pendiente,aprobada,rechazada',
+            'state' => 'required|in:pendiente,aprobada,rechazada',
             'notes' => 'required|string',
         ]);
         $up = GenderVerification::find($id);

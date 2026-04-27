@@ -33,10 +33,19 @@ class SeguimientoCasoController extends Controller
      */
     public function store(Request $request)
     {
+         $validated = $request->validate([
+        'status' => 'required|in:in_process,open,close',
+        'coments' => 'required|string',
+        'complaint_id' => 'required|exists:complaints,id',
+        'testimonial_id' => 'required|exists:testimonials,id',
+        'advisor_id' => 'required|exists:advisors,id',
+    ]);
         $seguimiento = new SeguimientoCaso();
-        $seguimiento->case_id = $request->case_id;
         $seguimiento->status = $request->status;
-        $seguimiento->notes = $request->notes;
+        $seguimiento->coments = $request->coments;
+        $seguimiento->complaint_id = $request->complaint_id;
+        $seguimiento->testimonial_id = $request->testimonial_id;
+        $seguimiento->advisor_id = $request->advisor_id;
         $seguimiento->save();
 
         return response()->json([
@@ -77,12 +86,12 @@ class SeguimientoCasoController extends Controller
     public function update(Request $request, string $id)
     {
         $valideted = $request->validate([
-            'status' => 'required|enum:in_process,resolved,closed',
-            'comments' => 'required|string',
+            'status' => 'required|in:in_process,open,close',
+            'coments' => 'required|string',
         ]);
         $up = SeguimientoCaso::find($id);
         $up->status = $request->status;
-        $up->comments = $request->comments;
+        $up->coments = $request->coments;
         $up->save();
         return response()->json([
             "data"=>$up,

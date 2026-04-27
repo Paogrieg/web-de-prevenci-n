@@ -33,9 +33,17 @@ class CollaborationController extends Controller
      */
     public function store(Request $request)
     {
+       $request->validate([
+            'type' => 'required|string|max:50',
+            'description' => 'required|string|max:500',
+            'user_id' => 'required|numeric|exists:users,id',
+            'company_id' => 'required|numeric|exists:companies,id',
+        ]);
         $collaboration = new Collaboration();
-        $collaboration->name = $request->name;
+        $collaboration->type = $request->type;
         $collaboration->description = $request->description;
+        $collaboration->user_id = $request->user_id;
+        $collaboration->company_id = $request->company_id;
         $collaboration->save();
 
         return response()->json([

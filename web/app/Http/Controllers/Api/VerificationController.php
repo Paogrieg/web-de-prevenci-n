@@ -33,10 +33,16 @@ class VerificationController extends Controller
      */
     public function store(Request $request)
     {
-        $verification = new Verification();
-        $verification->user_id = $request->user_id;
-        $verification->status = $request->status;
-        $verification->save();
+        $request->validate([
+            'state' => 'required|in:pendiente,aprobada,rechazada',
+            'date_verification' => 'required|date',
+            'new_id' => 'required|numeric|exists:news,id',
+        ]);
+            $verification = new Verification();
+            $verification->state = $request->state;
+            $verification->date_verification = $request->date_verification;
+            $verification->new_id = $request->new_id;
+            $verification->save();
 
         return response()->json([
             "data"=>$verification,

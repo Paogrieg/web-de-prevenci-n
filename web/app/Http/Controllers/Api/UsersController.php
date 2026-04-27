@@ -14,7 +14,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $users = User::with('user')->get();
+        $users = User::all();
         return response()->json([
             "data"=>$users,
             "status"=>"success"
@@ -34,7 +34,7 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        $valideted = $request->validate([
+        $validated = $request->validate([
             'name' => 'required|min:3|max:30',
             'lastname' => 'required|min:3|max:30',
             'phone_number' => 'required|numeric',
@@ -42,7 +42,7 @@ class UsersController extends Controller
             'password' => 'required|min:4',
             'dateBirth' => 'required|date',
             'avatar_id' => 'required|numeric',
-            'rol' => 'required|numeric',
+            'rol' => 'required|string',
             'verificated' => 'required|boolean',
         ]);
         $user = new User();
@@ -94,7 +94,7 @@ class UsersController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $valideted = $request->validate([
+        $validated = $request->validate([
             'name' => 'required|min:3|max:30',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:4',
