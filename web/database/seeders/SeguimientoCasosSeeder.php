@@ -14,7 +14,7 @@ class SeguimientoCasosSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('seguimientoCasos')->insert([
+        DB::table('seguimientocasos')->insert([
             [
                 'status' => 'in_process',
                 'coments' => 'El caso se está revisando, se contactará al usuario pronto.',
@@ -25,7 +25,7 @@ class SeguimientoCasosSeeder extends Seeder
                 'updated_at' => date('Y-m-d H:i:s'),
             ]
          ]);
-          DB::table('seguimientoCasos')->insert([
+          DB::table('seguimientocasos')->insert([
             [
                 'status' => 'open',
                 'coments' => 'Se ha abierto el caso y se asignó un asesor para seguimiento.',
