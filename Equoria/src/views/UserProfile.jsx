@@ -1,35 +1,260 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom"; 
+import { useAuth } from "../context/AuthContext"; 
 import { T, COMPLAINT_COLORS, TABS } from "../constants/theme";
 import { fmtDate, fmtDateShort } from "../utils/formatters";
-import { apiFetch } from "../api/client";
+import { API_BASE } from "../api/client"; 
 import { Avatar, Card, CardHeader, InfoRow, Spinner, ErrorMsg } from "../components/SharedUI";
 
-export default function UserProfile({ userId, token, onBack }) {
-  const [activeTab, setActiveTab] = useState(0);
+const secureFetch = async (endpoint, token) => {
+  const response = await fetch(`${API_BASE}${endpoint}`, {
+    headers: {
+      'Authorization': `Bearer ${token}`,
+      'Accept': 'application/json'
+    }
+  });
+  if (!response.ok) {
+    throw new Error(`HTTP ${response.status} - Sesión inválida o ruta no encontrada`);
+  }
+  return response.json();
+};
 
-  /* data state */
+// --- COMPONENTE DE LA VENTANA EMERGENTE (2 PASOS) ---
+const CreateNewsModal = ({ onClose, token }) => {
+  const [step, setStep] = useState(1); // Controla en qué paso estamos
+  
+  // Datos del Paso 1
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
+  const [img, setImg] = useState("");
+  
+  // Datos del Paso 2
+  const [enablePaypal, setEnablePaypal] = useState(false);
+  const [paypalLink, setPaypalLink] = useState("");
+  
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+
+  // Al presionar "Continuar" en el paso 1
+  const handleNextStep = (e) => {
+    e.preventDefault();
+    if (!title.trim() || !content.trim()) {
+      return setError("Por favor, llena el título y el contenido.");
+    }
+    setError("");
+    setStep(2); // Cambiamos la pantalla al paso 2
+  };
+
+  // Al presionar "Publicar" en el paso 2
+  const handleFinalSubmit = async (e) => {
+    e.preventDefault();
+    
+    if (enablePaypal && !paypalLink.trim()) {
+      return setError("Por favor, ingresa tu enlace o correo de PayPal.");
+    }
+    
+    setLoading(true);
+    setError("");
+
+    try {
+      const response = await fetch(`${API_BASE}/new`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}`,
+          "Accept": "application/json"
+        },
+        body: JSON.stringify({ 
+          title, 
+          content, 
+          img: "default.jpg", 
+          type: "news",
+          paypal_enabled: enablePaypal,
+          paypal_link: enablePaypal ? paypalLink : null
+        })
+      });
+
+      if (!response.ok) throw new Error("Hubo un problema al publicar la noticia.");
+      
+      onClose();
+    } catch (err) {
+      setError(err.message);
+      setLoading(false);
+    } 
+  };
+
+  return (
+    <div style={{
+      position: "fixed", top: 0, left: 0, right: 0, bottom: 0,
+      backgroundColor: "rgba(0, 0, 0, 0.6)", zIndex: 9999,
+      display: "flex", alignItems: "center", justifyContent: "center",
+      padding: 20
+    }}>
+      <div style={{
+        background: T.white, borderRadius: 16, width: "100%", maxWidth: 500,
+        boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+        overflow: "hidden", fontFamily: "'DM Sans', sans-serif",
+        maxHeight: "90vh", display: "flex", flexDirection: "column"
+      }}>
+        <div style={{ padding: "20px 24px", borderBottom: `1px solid ${T.plum100}`, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+          <h3 style={{ margin: 0, fontSize: 18, color: T.plum600, fontFamily: "'Playfair Display', serif" }}>
+            <i className="fa-solid fa-newspaper" style={{ marginRight: 8 }}></i> 
+            {step === 1 ? "Redactar Noticia" : "Opciones de Apoyo"}
+          </h3>
+          <button onClick={onClose} style={{ background: "transparent", border: "none", fontSize: 18, color: T.textSecondary, cursor: "pointer" }}>
+            <i className="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <div style={{ overflowY: "auto", padding: 24 }}>
+          {error && <div style={{ background: "rgba(232,121,160,0.1)", color: T.rose, padding: "10px 14px", borderRadius: 8, fontSize: 13, marginBottom: 16 }}>{error}</div>}
+
+          {/* -- DATOS DE LA NOTICIA --- */}
+          {step === 1 && (
+            <form onSubmit={handleNextStep}>
+              <div style={{ marginBottom: 16 }}>
+                <label style={{ display: "block", fontSize: 13, fontWeight: 600, color: T.textPrimary, marginBottom: 8 }}>Título de la noticia</label>
+                <input 
+                  type="text" 
+                  value={title}
+                  onChange={(e) => setTitle(e.target.value)}
+                  placeholder="Ej. Nueva campaña de prevención..."
+                  style={{ width: "100%", padding: "12px 14px", borderRadius: 8, border: `1px solid ${T.plum200}`, outline: "none", fontSize: 14, fontFamily: "inherit" }}
+                />
+              </div>
+
+              <div style={{ marginBottom: 16 }}>
+                <label style={{ display: "block", fontSize: 13, fontWeight: 600, color: T.textPrimary, marginBottom: 8 }}>Contenido</label>
+                <textarea 
+                  value={content}
+                  onChange={(e) => setContent(e.target.value)}
+                  placeholder="Escribe los detalles aquí..."
+                  rows="4"
+                  style={{ width: "100%", padding: "12px 14px", borderRadius: 8, border: `1px solid ${T.plum200}`, outline: "none", fontSize: 14, fontFamily: "inherit", resize: "vertical" }}
+                ></textarea>
+              </div>
+
+              <div style={{ display: "flex", justifyContent: "flex-end", gap: 12 }}>
+                <button type="button" onClick={onClose} style={{
+                  background: T.surface, border: `1px solid ${T.plum200}`, color: T.textSecondary,
+                  padding: "10px 18px", borderRadius: 8, fontWeight: 600, cursor: "pointer", fontSize: 14
+                }}>
+                  Cancelar
+                </button>
+                <button type="submit" style={{
+                  background: T.plum600, border: "none", color: T.white,
+                  padding: "10px 24px", borderRadius: 8, fontWeight: 600, cursor: "pointer", fontSize: 14
+                }}>
+                  Continuar <i className="fa-solid fa-arrow-right" style={{ marginLeft: 5 }}></i>
+                </button>
+              </div>
+            </form>
+          )}
+
+          {/* --- PANTALLA 2: CONFIGURACIÓN DE PAYPAL --- */}
+          {step === 2 && (
+            <form onSubmit={handleFinalSubmit}>
+              <div style={{ textAlign: "center", marginBottom: 20 }}>
+                <i className="fa-brands fa-paypal" style={{ fontSize: 40, color: "#003087", marginBottom: 10 }}></i>
+                <h4 style={{ margin: "0 0 10px 0", color: T.textPrimary, fontSize: 16 }}>¿Deseas habilitar donaciones?</h4>
+                <p style={{ margin: 0, fontSize: 13, color: T.textSecondary, lineHeight: 1.5 }}>
+                  Puedes agregar un enlace directo para que la comunidad apoye económicamente tu publicación. Esto es completamente opcional.
+                </p>
+              </div>
+
+              <div style={{ marginBottom: 24, padding: "16px", background: "#f8f9fa", borderRadius: 8, border: "1px solid #e2e8f0" }}>
+                <label style={{ display: "flex", alignItems: "center", cursor: "pointer", fontSize: 14, fontWeight: 600, color: "#003087" }}>
+                  <input 
+                    type="checkbox" 
+                    checked={enablePaypal}
+                    onChange={(e) => setEnablePaypal(e.target.checked)}
+                    style={{ marginRight: 10, width: 16, height: 16 }}
+                    disabled={loading}
+                  />
+                  Sí, quiero habilitar PayPal
+                </label>
+
+                {enablePaypal && (
+                  <div style={{ marginTop: 16 }}>
+                    <label style={{ display: "block", fontSize: 12, color: T.textSecondary, marginBottom: 6 }}>Enlace de PayPal.Me o correo electrónico</label>
+                    <input 
+                      type="text" 
+                      value={paypalLink}
+                      onChange={(e) => setPaypalLink(e.target.value)}
+                      placeholder="Ej. paypal.me/tuusuario"
+                      style={{ width: "100%", padding: "10px 12px", borderRadius: 6, border: "1px solid #cbd5e1", outline: "none", fontSize: 13, fontFamily: "inherit" }}
+                      disabled={loading}
+                    />
+                  </div>
+                )}
+              </div>
+
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                <button type="button" onClick={() => { setStep(1); setError(""); }} disabled={loading} style={{
+                  background: "transparent", border: "none", color: T.plum600,
+                  fontWeight: 600, cursor: "pointer", fontSize: 14, padding: 0
+                }}>
+                  <i className="fa-solid fa-arrow-left" style={{ marginRight: 5 }}></i> Volver
+                </button>
+                
+                <button type="submit" disabled={loading} style={{
+                  background: T.plum600, border: "none", color: T.white,
+                  padding: "10px 24px", borderRadius: 8, fontWeight: 600, cursor: "pointer", fontSize: 14,
+                  opacity: loading ? 0.7 : 1
+                }}>
+                  {loading ? "Publicando..." : "Publicar Noticia"}
+                </button>
+              </div>
+            </form>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+};
+// --------------------------------------------------------
+
+export default function UserProfile() {
+  const { user: authUser, logout } = useAuth(); 
+  const navigate = useNavigate(); 
+
+  const userId = authUser?.id; 
+  const token = localStorage.getItem('auth_token'); 
+
+  const [activeTab, setActiveTab] = useState(0);
+  const [showNewsModal, setShowNewsModal] = useState(false);
+
   const [user,        setUser]        = useState(null);
   const [complaints,  setComplaints]  = useState([]);
   const [testimonies, setTestimonies] = useState([]);
   const [contacts,    setContacts]    = useState([]);
 
-  /* loading / error per resource */
   const [loading, setLoading] = useState({ user: true, complaints: true, testimonies: true, contacts: true });
   const [errors,  setErrors]  = useState({});
 
   const setDone  = (key) => setLoading(p => ({ ...p, [key]: false }));
   const setError = (key, msg) => { setErrors(p => ({ ...p, [key]: msg })); setDone(key); };
 
+  const handleLogout = () => {
+    if (logout) logout(); 
+    localStorage.removeItem('auth_token'); 
+    navigate('/login'); 
+  };
+
+  const handleCreateNews = () => {
+    setShowNewsModal(true); 
+  };
+
   useEffect(() => {
     if (!userId || !token) return;
-    apiFetch(`/users/${userId}`, token)
+    secureFetch(`/users/${userId}`, token)
       .then(r => { setUser(r.data ?? r); setDone("user"); })
       .catch(e => setError("user", `No se pudo cargar el perfil: ${e.message}`));
   }, [userId, token]);
 
   useEffect(() => {
     if (!userId || !token) return;
-    apiFetch("/complaint", token)
+    secureFetch("/complaint", token)
       .then(r => {
         const all = r.data ?? r;
         setComplaints(all.filter(c => c.user_id === userId));
@@ -40,7 +265,7 @@ export default function UserProfile({ userId, token, onBack }) {
 
   useEffect(() => {
     if (!userId || !token) return;
-    apiFetch("/testimonials", token)
+    secureFetch("/testimonials", token)
       .then(r => {
         const all = r.data ?? r;
         setTestimonies(all.filter(t => t.user_id === userId));
@@ -51,7 +276,7 @@ export default function UserProfile({ userId, token, onBack }) {
 
   useEffect(() => {
     if (!userId || !token) return;
-    apiFetch("/emergencyContact", token)
+    secureFetch("/emergencyContact", token)
       .then(r => {
         const all = r.data ?? r;
         setContacts(all.filter(c => c.user_id === userId));
@@ -63,7 +288,7 @@ export default function UserProfile({ userId, token, onBack }) {
   if (!userId || !token) {
     return (
       <div style={{ fontFamily: "'DM Sans', sans-serif" }}>
-        <ErrorMsg msg="Falta userId o token. Pasa ambos como props al componente." />
+        <ErrorMsg msg="Falta userId o token en la sesión. Inicia sesión nuevamente." />
       </div>
     );
   }
@@ -72,34 +297,19 @@ export default function UserProfile({ userId, token, onBack }) {
   if (errors.user)  return <ErrorMsg msg={errors.user} />;
 
   const resolvedCount = complaints.filter(c => c.status === "resuelto").length;
-  const verifiedBadge = user.verificated
+  const verifiedBadge = user?.verificated
     ? { label: "Verificada", bg: "rgba(16,185,129,0.12)", color: T.green,   border: "rgba(16,185,129,0.3)" }
     : { label: "Pendiente",  bg: "rgba(232,121,160,0.12)", color: T.rose,  border: "rgba(232,121,160,0.3)" };
 
   return (
     <div style={{ fontFamily: "'DM Sans', sans-serif", color: T.textPrimary }}>
-      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 24 }}>
-        <div>
-          <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 22, fontWeight: 700, color: T.textPrimary, display: "flex", alignItems: "center", gap: 10, margin: 0 }}>
-            <i className="fa-solid fa-user" style={{ color: T.plum600 }}></i>
-            Perfil de Usuaria
-          </h2>
-          <p style={{ fontSize: 13, color: T.textSecondary, margin: "4px 0 0" }}>
-            Información detallada de la cuenta
-          </p>
-        </div>
-        {onBack && (
-          <button onClick={onBack} style={{
-            display: "flex", alignItems: "center", gap: 8,
-            background: T.white, border: `1px solid ${T.plum200}`,
-            color: T.plum600, borderRadius: 10, padding: "9px 16px",
-            cursor: "pointer", fontFamily: "'DM Sans', sans-serif",
-            fontSize: 13, fontWeight: 600, boxShadow: T.shadow,
-          }}>
-            <i className="fa-solid fa-arrow-left"></i> Volver
-          </button>
-        )}
-      </div>
+      
+      {showNewsModal && (
+        <CreateNewsModal 
+          token={token} 
+          onClose={() => setShowNewsModal(false)} 
+        />
+      )}
 
       <Card style={{ padding: 0, marginBottom: 24, overflow: "visible" }}>
         <div style={{
@@ -131,7 +341,7 @@ export default function UserProfile({ userId, token, onBack }) {
                 border: `1px solid ${verifiedBadge.border}`,
                 borderRadius: 20, padding: "5px 14px", fontSize: 12, fontWeight: 600,
               }}>
-                <i className={`fa-solid ${user.verificated ? "fa-circle-check" : "fa-hourglass-half"}`} style={{ marginRight: 6 }}></i>
+                <i className={"fa-solid " + (user?.verificated ? "fa-circle-check" : "fa-hourglass-half")} style={{ marginRight: 6 }}></i>
                 {verifiedBadge.label}
               </span>
               <span style={{
@@ -214,7 +424,7 @@ export default function UserProfile({ userId, token, onBack }) {
                     display: "flex", alignItems: "center", justifyContent: "center",
                     fontSize: 11, color: item.done ? T.green : T.plum300,
                   }}>
-                    <i className={`fa-solid ${item.done ? "fa-check" : "fa-minus"}`}></i>
+                    <i className={"fa-solid " + (item.done ? "fa-check" : "fa-minus")}></i>
                   </div>
                   <span style={{ fontSize: 13, color: item.done ? T.textPrimary : T.textSecondary }}>{item.label}</span>
                 </div>
@@ -292,10 +502,10 @@ export default function UserProfile({ userId, token, onBack }) {
                     <span style={{
                       background: t.anonymous ? "rgba(107,47,160,0.12)" : "rgba(16,185,129,0.12)",
                       color: t.anonymous ? T.plum600 : T.green,
-                      border: `1px solid ${t.anonymous ? T.plum300 : "rgba(16,185,129,0.3)"}`,
+                      border: "1px solid " + (t.anonymous ? T.plum300 : "rgba(16,185,129,0.3)"),
                       borderRadius: 20, padding: "3px 10px", fontSize: 11, fontWeight: 600,
                     }}>
-                      <i className={`fa-solid ${t.anonymous ? "fa-user-secret" : "fa-user-check"}`} style={{ marginRight: 5 }}></i>
+                      <i className={"fa-solid " + (t.anonymous ? "fa-user-secret" : "fa-user-check")} style={{ marginRight: 5 }}></i>
                       {t.anonymous ? "Anónimo" : "Público"}
                     </span>
                     <span style={{ fontSize: 12, color: T.textSecondary }}>{fmtDateShort(t.created_at)}</span>
@@ -365,6 +575,44 @@ export default function UserProfile({ userId, token, onBack }) {
            )}
         </Card>
       )}
+
+      {/* --- BOTONES FINALES DE ACCIÓN --- */}
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: 40, borderTop: `1px solid ${T.plum100}`, paddingTop: 20, paddingBottom: "50px" }}>
+        
+        <button onClick={() => navigate('/feed')} style={{
+          display: "flex", alignItems: "center", gap: 8,
+          background: T.white, border: `1px solid ${T.plum200}`,
+          color: T.plum600, borderRadius: 10, padding: "10px 20px",
+          cursor: "pointer", fontFamily: "'DM Sans', sans-serif",
+          fontSize: 14, fontWeight: 600, boxShadow: T.shadow,
+        }}>
+          <i className="fa-solid fa-arrow-left"></i> Volver al Feed
+        </button>
+
+        <div style={{ display: "flex", gap: 15 }}>
+          <button onClick={handleCreateNews} style={{
+            display: "flex", alignItems: "center", gap: 8,
+            background: T.plum600, border: "none",
+            color: T.white, borderRadius: 10, padding: "10px 20px",
+            cursor: "pointer", fontFamily: "'DM Sans', sans-serif",
+            fontSize: 14, fontWeight: 600, boxShadow: T.shadow,
+          }}>
+            <i className="fa-solid fa-newspaper"></i> Crear noticia
+          </button>
+
+          <button onClick={handleLogout} style={{
+            display: "flex", alignItems: "center", gap: 8,
+            background: T.rose, border: "none",
+            color: T.white, borderRadius: 10, padding: "10px 20px",
+            cursor: "pointer", fontFamily: "'DM Sans', sans-serif",
+            fontSize: 14, fontWeight: 600, boxShadow: T.shadow,
+          }}>
+            <i className="fa-solid fa-right-from-bracket"></i> Cerrar sesión
+          </button>
+        </div>
+        
+      </div>
+
     </div>
   );
 }

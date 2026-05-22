@@ -8,9 +8,7 @@ function getCsrfMeta() {
 
 const api = axios.create({
   baseURL: import.meta.env.VITE_API_URL || 'http://localhost:8000/api',
-  withCredentials: true, // necesario para Sanctum cookies (SPA stateful)
-  // Axios lee automáticamente XSRF-TOKEN cookie y envía X-XSRF-TOKEN header
-  xsrfCookieName: 'XSRF-TOKEN',
+  withCredentials: true, 
   xsrfHeaderName: 'X-XSRF-TOKEN',
   headers: {
     'Accept': 'application/json',
@@ -30,19 +28,11 @@ api.interceptors.request.use((config) => {
   return config
 })
 
-/**
- * Llama esto ANTES del login si usas Sanctum SPA con cookies (stateful).
- * Equivale a hacer GET /sanctum/csrf-cookie en Laravel.
- *   import { initSanctum } from '@/services/api'
- *   await initSanctum()
- *   await login({ email, password })
- */
 export async function initSanctum() {
   const baseUrl = (import.meta.env.VITE_API_URL || 'http://localhost:8000/api').replace(/\/api\/?$/, '')
   await axios.get(`${baseUrl}/sanctum/csrf-cookie`, { withCredentials: true })
 }
 
-// Manejo global de 401
 api.interceptors.response.use(
   (response) => response,
   (error) => {

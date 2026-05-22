@@ -48,6 +48,8 @@ Route::middleware('jwt')->group(function () {
     Route::resource('/genderVerification', GenderVerificationController::class);
     Route::resource('/laws', LawsController::class);
     Route::resource('/new', NewController::class);
+    Route::post('/payment/create-order',  [PaymentController::class, 'createOrder']);
+    Route::post('/payment/capture-order', [PaymentController::class, 'captureOrder']);
     Route::resource('/payment', PaymentController::class);
     Route::resource('/record', RecordController::class);
     Route::resource('/seguimientoCaso', SeguimientoCasoController::class);

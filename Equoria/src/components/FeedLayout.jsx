@@ -1,9 +1,11 @@
+import { useNavigate } from "react-router-dom";
 import { TABS, MENU, TRENDING, RESOURCES, CONTACTS } from "../constants/feedData";
 import { useAuth } from "../context/AuthContext";
 import logoImg from '../img/logo.png';
 
 export function FeedNavbar({ apiOk, error, loading, search, setSearch, activeTab, setActiveTab, setActivePage, stats }) {
   const { user } = useAuth();
+  const navigate = useNavigate();
   const userInitials = user?.name ? user.name.substring(0, 2).toUpperCase() : "U";
 
   return (
@@ -41,7 +43,14 @@ export function FeedNavbar({ apiOk, error, loading, search, setSearch, activeTab
       <div className="eq-nav-right">
         <div className="eq-notif-btn"><i className="fa-solid fa-bell" /><div className="eq-notif-dot" /></div>
         <button className="eq-sos-btn"><i className="fa-solid fa-phone-volume" /> SOS</button>
-        <div className="eq-user-av">{userInitials}</div> 
+        <div 
+          className="eq-user-av" 
+          onClick={() => navigate("/profile")}
+          style={{ cursor: "pointer" }}
+          title="Ir a mi perfil"
+        >
+          {userInitials}
+        </div> 
       </div>
     </nav>
   );
@@ -49,6 +58,7 @@ export function FeedNavbar({ apiOk, error, loading, search, setSearch, activeTab
 
 export function LeftSidebar({ activePage, setActivePage, setActiveTab }) {
   const { user } = useAuth();
+  const navigate = useNavigate();
   const userName = user?.name || "Usuaria de Equoria";
   const userInitials = user?.name ? user.name.substring(0, 2).toUpperCase() : "U";
   
@@ -60,13 +70,17 @@ export function LeftSidebar({ activePage, setActivePage, setActiveTab }) {
       <div className="eq-profile-card">
         <div className="eq-profile-cover" />
         <div className="eq-profile-av-wrap">
-          
-          <div className="eq-profile-av">{userInitials}</div>
+          <div 
+            className="eq-profile-av"
+            onClick={() => navigate("/profile")}
+            style={{ cursor: "pointer" }}
+            title="Ir a mi perfil"
+          >
+            {userInitials}
+          </div>
         </div>
         <div className="eq-profile-info">
-          
           <div className="eq-profile-name">{userName}</div>
-        
           <span className="eq-profile-role">{roleText}</span>
         </div>
       </div>

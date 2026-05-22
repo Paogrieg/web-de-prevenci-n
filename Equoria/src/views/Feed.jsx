@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom"; 
+import { useAuth } from "../context/AuthContext"; 
 import { useFeed } from "../hooks/useFeed";
 import { API_BASE } from "../api/client";
 import { PostCard, Skeleton } from "../components/PostCard";
@@ -6,6 +8,9 @@ import { FeedNavbar, LeftSidebar, RightSidebar } from "../components/FeedLayout"
 import "../styles/equoria.css"; 
 
 export default function EquoriaFeed() {
+  const navigate = useNavigate(); 
+  const { user } = useAuth();  
+
   const [activeTab,  setActiveTab]  = useState("inicio");
   const [activePage, setActivePage] = useState("inicio");
   const [search,     setSearch]     = useState("");
@@ -32,6 +37,9 @@ export default function EquoriaFeed() {
   const apiOk = !loading && !error;
   const stats = { news: news.length, test: testimonials.length, laws: laws.length };
 
+  // 3. Extraemos las iniciales dinámicamente
+  const userInitials = user?.name ? user.name.substring(0, 2).toUpperCase() : "U";
+
   return (
     <>
       <FeedNavbar 
@@ -47,7 +55,14 @@ export default function EquoriaFeed() {
           {/* Caja de Redacción */}
           <div className="eq-compose">
             <div className="eq-compose-row">
-              <div className="eq-user-av" style={{ width: 42, height: 42, borderRadius: 12 }}>MG</div>
+              <div 
+                className="eq-user-av" 
+                style={{ width: 42, height: 42, borderRadius: 12, cursor: "pointer" }}
+                onClick={() => navigate("/profile")}
+                title="Ir a mi perfil"
+              >
+                {userInitials}
+              </div>
               <input className="eq-compose-input" placeholder="Comparte tu experiencia o testimonio..." />
             </div>
             <div className="eq-compose-actions">

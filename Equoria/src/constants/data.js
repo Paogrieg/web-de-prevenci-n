@@ -14,14 +14,14 @@ export const SLIDES = [
   { id: 5, theme: "violet", bg: `linear-gradient(160deg, #1e0a4a 0%, ${COLORS.plum500} 100%)`, chip: "Emergencia", chipColor: "#10b981", icon: "📞", title: "Línea de crisis 800-900-1000", desc: "Atención gratuita, confidencial y disponible las 24 horas del día, todos los días del año.", cta: "Llamar ahora" },
   { id: 6, theme: "midnight", bg: "linear-gradient(160deg, #0a0a1a 0%, #1a0a2e 100%)", chip: "Comunidad", chipColor: COLORS.gold, icon: "👥", title: "Testimonios de fortaleza", desc: "Historias reales de mujeres que encontraron apoyo y reconstruyeron su vida.", cta: "Ver historias" },
 ];
+import { faShieldHalved, faUserTie, faLock, faBookOpen } from "@fortawesome/free-solid-svg-icons";
 
 export const FEATURES = [
-  { icon: "🛡️", title: "Protección 24/7", desc: "Línea de emergencia activa todo el año, sin costo." },
-  { icon: "👔", title: "Asesoría legal", desc: "Asesoras certificadas que conocen la ley a fondo." },
-  { icon: "🔒", title: "Confidencialidad total", desc: "Tu información está protegida y nunca se compartirá." },
-  { icon: "📖", title: "Recursos gratuitos", desc: "Guías, leyes y talleres sin costo para todas." },
+  { icon: faShieldHalved, title: "Protección 24/7", desc: "Línea de emergencia activa todo el año, sin costo." },
+  { icon: faUserTie, title: "Asesoría legal", desc: "Asesoras certificadas que conocen la ley a fondo." },
+  { icon: faLock, title: "Confidencialidad total", desc: "Tu información está protegida y nunca se compartirá." },
+  { icon: faBookOpen, title: "Recursos gratuitos", desc: "Guías, leyes y talleres sin costo para todas." },
 ];
-
 export const NAV_LINKS = ["Servicios", "Recursos", "Noticias", "Leyes", "Testimonios"];
 
 export const outlineBtn = {

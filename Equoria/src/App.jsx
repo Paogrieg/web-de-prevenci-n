@@ -12,6 +12,7 @@ import ForgotPassword from './views/ForgotPassword.jsx'
 
 // App - General (Usuarias)
 import Feed           from './views/Feed.jsx' 
+import UserProfile    from './views/UserProfile.jsx' 
 
 // App - Administración
 import Dashboard      from './views/Dashboard.jsx'
@@ -24,6 +25,7 @@ import Emergency      from './views/Emergency.jsx'
 import Verifications  from './views/Verifications.jsx'
 import Payments       from './views/Payments.jsx'
 import Settings       from './views/Settings.jsx'
+
 export default function App() {
   return (
     <Routes>
@@ -40,6 +42,14 @@ export default function App() {
         element={
           <ProtectedRoute>
             <Feed />
+          </ProtectedRoute>
+        } 
+      />
+      <Route 
+        path="/profile" 
+        element={
+          <ProtectedRoute>
+            <UserProfile />
           </ProtectedRoute>
         } 
       />
@@ -65,6 +75,7 @@ export default function App() {
         <Route path="/pagos"           element={<Payments />} />
         <Route path="/configuracion"   element={<Settings />} />
       </Route>
+      
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   )

@@ -59,7 +59,7 @@ export default function Hero() {
           fontSize: 11, fontWeight: 600, letterSpacing: 2, textTransform: "uppercase",
           padding: "6px 14px", borderRadius: 20, marginBottom: 20,
         }}>
-          💜 Plataforma de prevención y apoyo
+           Plataforma de prevención y apoyo
         </div>
 
         <h1 style={{
@@ -84,10 +84,9 @@ export default function Hero() {
           Accede a recursos, asesoría legal y acompañamiento especializado para proteger tus derechos y tu bienestar.
         </p>
 
-        <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
+        <a href="/register" style={{ textDecoration: "none" }}>
           <HeroBtn primary>→ Comenzar ahora</HeroBtn>
-          <HeroBtn>▶ Ver cómo funciona</HeroBtn>
-        </div>
+        </a>
 
         <div style={{
           display: "flex", gap: 28, marginTop: 36, paddingTop: 28,

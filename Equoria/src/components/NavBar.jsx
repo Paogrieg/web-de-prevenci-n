@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom"; // 1. Importamos useNavigate
+import { useNavigate } from "react-router-dom"; 
 import { COLORS, NAV_LINKS, outlineBtn, primaryBtn } from "../constants/data";
 
 function NavLink({ label }) {

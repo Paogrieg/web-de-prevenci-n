@@ -1,4 +1,5 @@
 import { COLORS, FEATURES } from "../constants/data";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function Features() {
   return (
@@ -17,8 +18,13 @@ export default function Features() {
             <div style={{
               width: 40, height: 40, borderRadius: 10, flexShrink: 0,
               background: COLORS.plum100,
-              display: "flex", alignItems: "center", justifyContent: "center", fontSize: 18,
-            }}>{f.icon}</div>
+              display: "flex", alignItems: "center", justifyContent: "center",
+            }}>
+              <FontAwesomeIcon 
+                icon={f.icon} 
+                style={{ fontSize: 18, color: COLORS.plum800 }} 
+              />
+            </div>
             <div>
               <div style={{ fontSize: 14, fontWeight: 600, color: COLORS.plum800, marginBottom: 3 }}>{f.title}</div>
               <div style={{ fontSize: 12, color: COLORS.textSecondary, lineHeight: 1.5 }}>{f.desc}</div>
