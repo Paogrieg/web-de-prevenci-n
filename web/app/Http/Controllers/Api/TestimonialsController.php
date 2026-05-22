@@ -13,7 +13,7 @@ class TestimonialsController extends Controller
      */
     public function index()
     {
-        $testimonies = Testimony::all();
+        $testimonies = Testimony::with('user')->get();
         return response()->json([
             "data"=>$testimonies,
             "status"=>"success"

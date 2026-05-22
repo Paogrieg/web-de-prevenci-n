@@ -32,6 +32,7 @@ Route::middleware('jwt')->group(function () {
     Route::get('/user', [AuthController::class, 'getUser']);
     Route::put('/user', [AuthController::class, 'updateUser']);
     Route::post('/logout', [AuthController::class, 'logout']);
+    Route::get('/me', [AuthController::class, 'getUser']);
 
     Route::resource('/advertising', AdvertisingController::class);
     Route::resource('/advisor', AdvisorController::class);
@@ -50,6 +51,6 @@ Route::middleware('jwt')->group(function () {
     Route::resource('/payment', PaymentController::class);
     Route::resource('/record', RecordController::class);
     Route::resource('/seguimientoCaso', SeguimientoCasoController::class);
-    Route::resource('/testimonials', TestimonialsController::class);
+    Route::apiResource('testimonials', TestimonialsController::class);
     Route::resource('/verification', VerificationController::class);
 });

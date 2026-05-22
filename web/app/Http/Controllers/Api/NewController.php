@@ -13,7 +13,7 @@ class NewController extends Controller
      */
     public function index()
     {
-        $news = News::all();
+        $news = News::with('user')->get();
         return response()->json([
             "data"=>$news,
             "status"=>"success"

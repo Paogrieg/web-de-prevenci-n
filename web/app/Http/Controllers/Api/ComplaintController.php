@@ -13,7 +13,7 @@ class ComplaintController extends Controller
      */
     public function index()
     {
-        $complaints = Complaint::all();
+        $complaints = Complaint::with('user')->get();
         return response()->json([
             "data"=>$complaints,
             "status"=>"success"
