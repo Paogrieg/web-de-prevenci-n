@@ -41,42 +41,58 @@ const CreateNewsModal = ({ onClose, token }) => {
     setStep(2); 
   };
 
-  const handleFinalSubmit = async (e) => {
-    e.preventDefault();
-    
-    if (enablePaypal && !paypalLink.trim()) {
-      return setError("Por favor, ingresa tu enlace o correo de PayPal.");
+  // Al presionar "Publicar" en el paso 2==================================
+const handleFinalSubmit = async (e) => {
+  e.preventDefault();
+
+  if (enablePaypal && !paypalLink.trim()) {
+    return setError("Por favor, ingresa tu enlace o correo de PayPal.");
+  }
+
+  setLoading(true);
+  setError("");
+
+  try {
+    const response = await fetch(`${API_BASE}/new`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`,
+        "Accept": "application/json"
+      },
+      body: JSON.stringify({
+        title,
+        content,
+        img: "default.jpg",
+        // Ya NO mandamos user_id: el backend lo toma del token JWT (más seguro)
+        // Ya NO mandamos type: "news": ese campo no existe en la tabla
+        paypal_enabled: enablePaypal,
+        paypal_link: enablePaypal ? paypalLink.trim() : null
+      })
+    });
+
+    // Si la respuesta NO es ok, leemos el body para saber qué falló
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => ({}));
+
+      // Laravel manda los errores de validación en 'errors' o 'details'
+      const validationErrors = errorData.errors || errorData.details;
+      if (validationErrors) {
+        const firstError = Object.values(validationErrors)[0];
+        throw new Error(Array.isArray(firstError) ? firstError[0] : firstError);
+      }
+
+      throw new Error(errorData.message || errorData.error || "Hubo un problema al publicar la noticia.");
     }
-    
-    setLoading(true);
-    setError("");
 
-    try {
-      const response = await fetch(`${API_BASE}/new`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Authorization": `Bearer ${token}`,
-          "Accept": "application/json"
-        },
-        body: JSON.stringify({ 
-          title, 
-          content, 
-          img: "default.jpg", 
-          type: "news",
-          paypal_enabled: enablePaypal,
-          paypal_link: enablePaypal ? paypalLink : null
-        })
-      });
-
-      if (!response.ok) throw new Error("Hubo un problema al publicar la noticia.");
-      
-      onClose();
-    } catch (err) {
-      setError(err.message);
-      setLoading(false);
-    } 
-  };
+    onClose();
+    // Opcional: refrescar la página o el feed para mostrar la nueva noticia
+    window.location.reload();
+  } catch (err) {
+    setError(err.message);
+    setLoading(false);
+  }
+};
 
   return (
     <div style={{
