@@ -13,42 +13,41 @@ use Tymon\JWTAuth\Exceptions\JWTException;
 class AuthController extends Controller
 {
     public function register(Request $request)
-    {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'lastname' => 'required|string|max:255',
-            'phone_number' => 'required|numeric',
-            'dateBirth' => 'required|date',
-            'avatar_id' => 'required|numeric',
-            'rol' => 'required|string',
-            'verificated' => 'required|boolean',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
-        ]);
+{
+    $request->validate([
+        'name' => 'required|string|max:255',
+        'lastname' => 'required|string|max:255',
+        'phone_number' => 'required|numeric',
+        'dateBirth' => 'required|date',
+        'email' => 'required|string|email|max:255|unique:users',
+        'password' => 'required|string|min:6|confirmed',
+        'document_type' => 'required|string',
+        'document' => 'required|file|mimes:jpg,jpeg,png,pdf|max:5120',
+    ]);
 
-        $user = User::create([
-            'name' => $request->name,
-            'lastname' => $request->lastname,
-            'phone_number' => $request->phone_number,
-            'dateBirth' => $request->dateBirth,
-            'avatar_id' => $request->avatar_id,
-            'rol' => $request->rol,
-            'verificated' => $request->verificated,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-        ]);
+    $user = User::create([
+        'name' => $request->name,
+        'lastname' => $request->lastname,
+        'phone_number' => $request->phone_number,
+        'dateBirth' => $request->dateBirth,
+        'email' => $request->email,
+        'password' => Hash::make($request->password),
+        'avatar_id' => 1,
+        'rol' => 'user',
+        'verificated' => false,
+    ]);
 
-        try {
-            $token = JWTAuth::fromUser($user);
-        } catch (JWTException $e) {
-            return response()->json(['error' => 'Could not create token'], 500);
-        }
-
-        return response()->json([
-            'token' => $token,
-            'user' => $user,
-        ], 201);
+    try {
+        $token = JWTAuth::fromUser($user);
+    } catch (JWTException $e) {
+        return response()->json(['error' => 'Could not create token'], 500);
     }
+
+    return response()->json([
+        'token' => $token,
+        'user' => $user,
+    ], 201);
+}
 
     public function login(Request $request)
     {

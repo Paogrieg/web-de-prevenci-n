@@ -33,12 +33,13 @@ class TestimonialsController extends Controller
      */
     public function store(Request $request)
     {
-         $validated = $request->validate([
-        'content' => 'required|string',
-        'anonymous' => 'required|boolean',
-        'user_id' => 'required|exists:users,id',
-        'complaint_id' => 'required|exists:complaints,id',
-    ]);
+        $validated = $request->validate([
+            'content' => 'required|string',
+            'anonymous' => 'required|boolean',
+            'user_id' => 'required|exists:users,id',
+            'complaint_id' => 'required|exists:complaints,id',
+        ]);
+
         $testimony = new Testimony();
         $testimony->content = $request->content;
         $testimony->anonymous = $request->anonymous;
@@ -46,10 +47,17 @@ class TestimonialsController extends Controller
         $testimony->complaint_id = $request->complaint_id;
         $testimony->save();
 
+        $user = \App\Models\User::find($request->user_id);
+
+        if ($user) {
+            $user->increment('empathy_points', 10);
+        }
+
         return response()->json([
-            "data"=>$testimony,
-            "status"=>"success"
-        ],200);
+            "data" => $testimony,
+            "status" => "success",
+            "message" => "Testimonio publicado. +10 puntos de empatía otorgados."
+        ], 200);
     }
 
     /**

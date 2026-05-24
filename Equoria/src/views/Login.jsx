@@ -13,7 +13,7 @@ export default function Login() {
   const [loading, setLoading] = useState(false)
   const [generalError, setGeneralError] = useState(null)
 
-  // CAMBIO 1: Redirigimos dependiendo del rol si el usuario ya está logueado
+
   if (user) {
     return <Navigate to={user.rol === 'admin' ? "/dashboard" : "/feed"} replace />
   }
@@ -29,11 +29,8 @@ export default function Login() {
     setGeneralError(null)
     setLoading(true)
     try {
-      // CAMBIO 2: Guardamos la respuesta para saber el rol
       const res = await login(form) 
       toast.success('Bienvenida')
-      
-      // Redirigimos dependiendo del rol que nos devolvió el login
       if (res.user?.rol === 'admin') {
         navigate('/dashboard')
       } else {

@@ -19,33 +19,28 @@ const secureFetch = async (endpoint, token) => {
   return response.json();
 };
 
-// --- COMPONENTE DE LA VENTANA EMERGENTE (2 PASOS) ---
 const CreateNewsModal = ({ onClose, token }) => {
-  const [step, setStep] = useState(1); // Controla en qué paso estamos
+  const [step, setStep] = useState(1); 
   
-  // Datos del Paso 1
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [img, setImg] = useState("");
   
-  // Datos del Paso 2
   const [enablePaypal, setEnablePaypal] = useState(false);
   const [paypalLink, setPaypalLink] = useState("");
   
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  // Al presionar "Continuar" en el paso 1
   const handleNextStep = (e) => {
     e.preventDefault();
     if (!title.trim() || !content.trim()) {
       return setError("Por favor, llena el título y el contenido.");
     }
     setError("");
-    setStep(2); // Cambiamos la pantalla al paso 2
+    setStep(2); 
   };
 
-  // Al presionar "Publicar" en el paso 2
   const handleFinalSubmit = async (e) => {
     e.preventDefault();
     
@@ -109,7 +104,6 @@ const CreateNewsModal = ({ onClose, token }) => {
         <div style={{ overflowY: "auto", padding: 24 }}>
           {error && <div style={{ background: "rgba(232,121,160,0.1)", color: T.rose, padding: "10px 14px", borderRadius: 8, fontSize: 13, marginBottom: 16 }}>{error}</div>}
 
-          {/* -- DATOS DE LA NOTICIA --- */}
           {step === 1 && (
             <form onSubmit={handleNextStep}>
               <div style={{ marginBottom: 16 }}>
@@ -151,7 +145,6 @@ const CreateNewsModal = ({ onClose, token }) => {
             </form>
           )}
 
-          {/* --- PANTALLA 2: CONFIGURACIÓN DE PAYPAL --- */}
           {step === 2 && (
             <form onSubmit={handleFinalSubmit}>
               <div style={{ textAlign: "center", marginBottom: 20 }}>
@@ -212,7 +205,6 @@ const CreateNewsModal = ({ onClose, token }) => {
     </div>
   );
 };
-// --------------------------------------------------------
 
 export default function UserProfile() {
   const { user: authUser, logout } = useAuth(); 
@@ -334,7 +326,19 @@ export default function UserProfile() {
               <div style={{ fontSize: 13, color: T.textSecondary, marginTop: 3 }}>
                 {user.rol?.charAt(0).toUpperCase() + user.rol?.slice(1)} · Registro: {fmtDate(user.created_at)}
               </div>
+              
+              <div style={{
+                display: "inline-flex", alignItems: "center", gap: "8px",
+                backgroundColor: "#f0fdf4", border: "1px solid #bbf7d0",
+                padding: "6px 14px", borderRadius: "50px", marginTop: "12px",
+              }}>
+                <i className="fa-solid fa-award" style={{ color: "#ff9800", fontSize: "1.1rem" }} />
+                <span style={{ fontSize: "0.9rem", color: "#166534", fontWeight: "700" }}>
+                  {user.empathy_points || 0} Puntos de Empatía
+                </span>
+              </div>
             </div>
+            
             <div style={{ display: "flex", gap: 8 }}>
               <span style={{
                 background: verifiedBadge.bg, color: verifiedBadge.color,
@@ -576,7 +580,6 @@ export default function UserProfile() {
         </Card>
       )}
 
-      {/* --- BOTONES FINALES DE ACCIÓN --- */}
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: 40, borderTop: `1px solid ${T.plum100}`, paddingTop: 20, paddingBottom: "50px" }}>
         
         <button onClick={() => navigate('/feed')} style={{
