@@ -23,10 +23,16 @@ use App\Http\Controllers\Api\RecordController;
 use App\Http\Controllers\Api\SeguimientoCasoController;
 use App\Http\Controllers\Api\TestimonialsController;
 use App\Http\Controllers\Api\VerificationController;
+use App\Http\Controllers\Api\PasswordResetController;
 
 Route::resource('/users',UsersController::class);
+Route::patch('/users/{id}/verify', [UsersController::class, 'verify']);
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
+
+// Recuperación de contraseña (sin autenticación)
+Route::post('/forgot-password', [PasswordResetController::class, 'forgotPassword']);
+Route::post('/reset-password', [PasswordResetController::class, 'resetPassword']);
 
 Route::middleware('jwt')->group(function () {
     Route::get('/user', [AuthController::class, 'getUser']);

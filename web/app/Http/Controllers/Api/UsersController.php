@@ -112,6 +112,29 @@ class UsersController extends Controller
     }
 
     /**
+     * Verificar una usuaria (marcar como verificada).
+     */
+    public function verify(string $id)
+    {
+        $user = User::find($id);
+        if (!$user) {
+            return response()->json([
+                "message" => "Usuario no encontrado",
+                "status"  => "error"
+            ], 404);
+        }
+
+        $user->verificated = true;
+        $user->save();
+
+        return response()->json([
+            "data"    => $user,
+            "status"  => "success",
+            "message" => "Usuaria verificada correctamente"
+        ], 200);
+    }
+
+    /**
      * Remove the specified resource from storage.
      */
     public function destroy(string $id)

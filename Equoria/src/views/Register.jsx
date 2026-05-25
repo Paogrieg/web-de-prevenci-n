@@ -68,8 +68,8 @@ export default function Register() {
       await api.post('/register', fd, {
         headers: { 'Content-Type': 'multipart/form-data' },
       })
-      toast.success('Cuenta creada correctamente. Revisa tu correo para verificarla.')
-      navigate('/verify-email')
+      toast.success('¡Cuenta creada! Te enviamos un correo de bienvenida. Ya puedes iniciar sesión.')
+      navigate('/login')
     } catch (err) {
       if (err.response?.status === 422) {
         setErrors(err.response.data.errors || {})

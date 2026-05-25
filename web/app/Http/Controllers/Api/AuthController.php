@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use Tymon\JWTAuth\Exceptions\JWTException;
+use App\Mail\WelcomeMail;
+use Illuminate\Support\Facades\Mail;
 
 class AuthController extends Controller
 {
@@ -41,6 +43,14 @@ class AuthController extends Controller
         $token = JWTAuth::fromUser($user);
     } catch (JWTException $e) {
         return response()->json(['error' => 'Could not create token'], 500);
+    }
+
+    // Enviar correo de bienvenida
+    try {
+        Mail::to($user->email)->send(new WelcomeMail($user));
+    } catch (\Exception $e) {
+        // No bloquear el registro si el correo falla
+        \Log::error('Error enviando correo de bienvenida: ' . $e->getMessage());
     }
 
     return response()->json([

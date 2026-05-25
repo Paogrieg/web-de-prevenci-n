@@ -9,6 +9,7 @@ import Login          from './views/Login.jsx'
 import Register       from './views/Register.jsx'
 import Verify         from './views/Verify.jsx'
 import ForgotPassword from './views/ForgotPassword.jsx'
+import ResetPassword  from './views/ResetPassword.jsx'
 
 // App - General (Usuarias)
 import Feed           from './views/Feed.jsx' 
@@ -35,6 +36,7 @@ export default function App() {
       <Route path="/register"        element={<Register />} />
       <Route path="/verify-email"    element={<Verify />} />
       <Route path="/forgot-password" element={<ForgotPassword />} />
+      <Route path="/reset-password"  element={<ResetPassword />} />
 
       {/* 2. RUTAS PRIVADAS - GENERAL (Cualquier usuario autenticado) */}
       <Route 
